@@ -28,7 +28,7 @@
     </header>
 
     <main>
-        <!-- HERO -->
+        <!-- MAIN -->
         <section class="hero section" id="top">
             <div class="hero-content">
                 <p class="hero-kicker">Sviluppatore .NET & Game Developer</p>
@@ -164,7 +164,7 @@
                     <h3>Backend &amp; Web</h3>
                     <ul>
                         <li>C#, .NET, ASP.NET Core</li>
-                        <li>Blazor WebAssembly</li>
+                        <li>Blazor WebAssembly (WASM)</li>
                         <li>REST API, JSON, OAuth</li>
                         <li>SQL (SQL Server, SQLite)</li>
                     </ul>
@@ -210,7 +210,7 @@
                     </div>
                     <div class="contact-item">
                         <span class="contact-label">Telefono/WhatsApp</span>
-                        <a href="tel:+393401234567" id="phone-link">
+                        <a href="tel:+393276823951" id="phone-link">
                             (+39) 327 68 23 951
                         </a>
                     </div>
@@ -233,9 +233,7 @@
       e.preventDefault();
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(phone)
-          .then(() => alert("Numero copiato negli appunti!"))
-          .catch(err => alert("Impossibile copiare il numero: " + err));
+        navigator.clipboard.writeText(phone);
       } else {
         const tempInput = document.createElement("input");
         tempInput.value = phone;
