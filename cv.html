@@ -7,8 +7,18 @@
     <meta name="description" content="Curriculum Vitae di Ivan Calogero, sviluppatore software e game developer.">
     <link rel="stylesheet" href="assets/css/style.css" />
     <style>
+        /* Palette CV (blu spento + rosso NivaZ) */
+        :root {
+            --cv-blue: #1b2a3a;
+            --cv-blue-soft: #23374a;
+            --cv-blue-light: #f4f7fb;
+            --cv-text-main: #22252b;
+            --cv-text-muted: #606673;
+            --cv-red: #ff3040;
+        }
+
         body {
-            background: radial-gradient(circle at top, #101020 0, #050509 55%, #020205 100%);
+            background: radial-gradient(circle at top, #05070d 0, #020206 55%, #000 100%);
         }
 
         .cv-wrapper {
@@ -19,75 +29,144 @@
 
         .cv-page {
             background: #ffffff;
-            color: #111111;
+            color: var(--cv-text-main);
             max-width: 900px;
             width: 100%;
-            border-radius: 16px;
-            padding: 32px 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.75);
+            border-radius: 26px;
+            padding: 32px 40px 34px;
+            box-shadow: 0 22px 70px rgba(0, 0, 0, 0.75);
+            position: relative;
         }
 
-        .cv-header {
+        /* Barra superiore blu arrotondata */
+        .cv-banner {
+            background: linear-gradient(135deg, var(--cv-blue), var(--cv-blue-soft));
+            border-radius: 20px;
+            padding: 18px 22px;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            gap: 24px;
-            border-bottom: 2px solid #e5e5e5;
-            padding-bottom: 16px;
+            gap: 20px;
+            color: #f8fafc;
             margin-bottom: 22px;
         }
 
+        .cv-heading-main {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
         .cv-name {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
-            color: #111111;
+            letter-spacing: 0.03em;
         }
 
         .cv-role {
-            font-size: 16px;
-            color: #555555;
-            margin-top: 4px;
+            font-size: 15px;
+            opacity: 0.9;
         }
 
-        .cv-contact {
-            text-align: right;
-            font-size: 14px;
-            color: #444444;
+        .cv-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            opacity: 0.7;
         }
 
-        .cv-contact a {
-            color: #c21828; /* rosso NivaZ soft */
+        .cv-avatar-circle {
+            min-width: 72px;
+            min-height: 72px;
+            border-radius: 999px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cv-blue);
+            font-weight: 700;
+            font-size: 26px;
+            box-shadow:
+                0 0 0 4px rgba(255, 255, 255, 0.25),
+                0 12px 26px rgba(0, 0, 0, 0.45);
+        }
+
+        .cv-contact-strip {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-size: 13px;
+        }
+
+        .cv-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cv-contact-label {
+            font-weight: 600;
+        }
+
+        .cv-contact-value a {
+            color: #ffe6ea;
             text-decoration: none;
         }
 
-        .cv-contact a:hover {
+        .cv-contact-value a:hover {
             text-decoration: underline;
         }
 
+        /* Layout contenuto principale */
+        .cv-body {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 24px;
+        }
+
         .cv-section-title {
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #c21828; /* titolo rosso */
-            margin-top: 18px;
-            margin-bottom: 8px;
+            letter-spacing: 0.14em;
+            color: var(--cv-blue);
+            margin-bottom: 6px;
+        }
+
+        .cv-section-underline {
+            width: 52px;
+            height: 3px;
+            border-radius: 999px;
+            background: var(--cv-red);
+            margin-bottom: 10px;
         }
 
         .cv-section {
-            margin-bottom: 12px;
-            font-size: 14px;
-            color: #333333;
+            font-size: 13px;
+            color: var(--cv-text-main);
+            margin-bottom: 16px;
         }
 
-        .cv-two-cols {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 24px;
-            margin-top: 10px;
+        .cv-paragraph {
+            margin: 0 0 6px;
+            color: var(--cv-text-muted);
+            line-height: 1.45;
         }
 
+        /* Esperienze (timeline soft) */
         .cv-job {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            padding: 10px 12px;
+            border-radius: 14px;
+            background: var(--cv-blue-light);
+        }
+
+        .cv-job-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 4px;
         }
 
         .cv-job-title {
@@ -95,43 +174,96 @@
         }
 
         .cv-job-meta {
-            font-size: 13px;
-            color: #777777;
+            font-size: 12px;
+            color: var(--cv-text-muted);
+            text-align: right;
+            white-space: nowrap;
         }
 
-        .cv-list {
-            padding-left: 18px;
-            margin: 4px 0 0;
-        }
-
-        .cv-list li {
+        .cv-job-company {
+            font-size: 12px;
+            color: var(--cv-text-muted);
             margin-bottom: 4px;
         }
 
+        .cv-list {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--cv-text-muted);
+        }
+
+        .cv-list li {
+            margin-bottom: 3px;
+        }
+
+        /* Colonna destra: box tondeggianti */
+        .cv-side-card {
+            background: var(--cv-blue-light);
+            border-radius: 18px;
+            padding: 12px 14px 10px;
+            margin-bottom: 14px;
+        }
+
+        .cv-side-card-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--cv-blue);
+            margin-bottom: 6px;
+        }
+
+        .cv-tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            font-size: 12px;
+        }
+
+        .cv-tag {
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            color: var(--cv-text-muted);
+        }
+
+        .cv-tag.strong {
+            background: var(--cv-blue);
+            color: #ffffff;
+            border-color: transparent;
+        }
+
+        .cv-side-text {
+            font-size: 13px;
+            color: var(--cv-text-muted);
+            margin: 0;
+        }
+
+        /* Barra con bottone stampa */
         .cv-print-bar {
-            text-align: center;
-            margin-bottom: 18px;
+            position: absolute;
+            top: -38px;
+            right: 12px;
         }
 
         .cv-print-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 16px;
+            padding: 7px 14px;
             border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.12);
-            background: #1b1b25;
+            border: 1px solid rgba(255,255,255,0.25);
+            background: rgba(10, 10, 18, 0.96);
             color: #f5f5f7;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 12px;
             text-decoration: none;
         }
 
         .cv-print-button:hover {
-            border-color: #c21828;
+            border-color: var(--cv-red);
         }
 
-        /* Stampa: rendiamo il PDF pulito */
+        /* Stampa: PDF pulito */
         @media print {
             body {
                 background: #ffffff !important;
@@ -149,28 +281,34 @@
                 border-radius: 0;
                 max-width: 100%;
                 width: 100%;
-                padding: 0;
+                padding: 16px 20px;
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 960px) {
             .cv-page {
-                padding: 24px 18px;
+                padding: 26px 20px 24px;
             }
-            .cv-header {
-                flex-direction: column;
-                text-align: left;
-            }
-            .cv-contact {
-                text-align: left;
-            }
-            .cv-two-cols {
+            .cv-body {
                 grid-template-columns: 1fr;
+            }
+            .cv-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .cv-avatar-circle {
+                align-self: flex-end;
+            }
+            .cv-print-bar {
+                position: static;
+                margin-bottom: 10px;
+                text-align: right;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header del sito -->
     <header class="site-header">
         <div class="logo">
             <span class="logo-mark">IC</span>
@@ -194,86 +332,152 @@
                 </button>
             </div>
 
-            <div class="cv-header">
-                <div>
+            <!-- Banner superiore blu -->
+            <div class="cv-banner">
+                <div class="cv-heading-main">
+                    <div class="cv-badge">Curriculum Vitae</div>
                     <div class="cv-name">Ivan Calogero</div>
                     <div class="cv-role">Sviluppatore .NET &amp; Game Developer</div>
+
+                    <div class="cv-contact-strip">
+                        <div class="cv-contact-item">
+                            <span class="cv-contact-label">Email</span>
+                            <span class="cv-contact-value">
+                                <a href="mailto:tuamail@example.com">tuamail@example.com</a>
+                            </span>
+                        </div>
+                        <div class="cv-contact-item">
+                            <span class="cv-contact-label">GitHub</span>
+                            <span class="cv-contact-value">
+                                <a href="https://github.com/ivan-calogero">github.com/ivan-calogero</a>
+                            </span>
+                        </div>
+                        <!-- Aggiungi LinkedIn / telefono / città se vuoi -->
+                        <!--
+                        <div class="cv-contact-item">
+                            <span class="cv-contact-label">LinkedIn</span>
+                            <span class="cv-contact-value">
+                                <a href="https://www.linkedin.com/in/...">linkedin.com/in/...</a>
+                            </span>
+                        </div>
+                        -->
+                    </div>
                 </div>
-                <div class="cv-contact">
-                    <div><strong>Email:</strong> <a href="mailto:tuamail@example.com">tuamail@example.com</a></div>
-                    <div><strong>GitHub:</strong> <a href="https://github.com/ivan-calogero">github.com/ivan-calogero</a></div>
-                    <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/...">linkedin.com/in/...</a></div>
-                    <div><strong>Telefono:</strong> +39 ...</div>
-                    <div><strong>Luogo:</strong> Roma, Italia</div>
+
+                <div class="cv-avatar-circle">
+                    IC
                 </div>
             </div>
 
-            <section class="cv-section">
-                <div class="cv-section-title">Profilo</div>
-                <p>
-                    Sviluppatore software con esperienza in stack Microsoft (.NET, C#) e sviluppo di videogiochi con Unity.
-                    Abituato a lavorare a stretto contatto con referenti tecnici e non tecnici, trasformando esigenze di business
-                    in soluzioni robuste, performanti e facili da usare.
-                </p>
-            </section>
+            <!-- Corpo CV -->
+            <div class="cv-body">
+                <!-- Colonna sinistra -->
+                <div>
+                    <section class="cv-section">
+                        <div class="cv-section-title">Profilo</div>
+                        <div class="cv-section-underline"></div>
+                        <p class="cv-paragraph">
+                            Sviluppatore software con esperienza nello stack Microsoft (.NET, C#) e nello sviluppo
+                            di videogiochi con Unity. Abituato a lavorare con referenti tecnici e non tecnici, traduco
+                            esigenze di business in soluzioni stabili, performanti e facili da usare.
+                        </p>
+                        <p class="cv-paragraph">
+                            Mi appassionano in particolare le applicazioni enterprise ben strutturate, i tool interni
+                            che fanno risparmiare tempo ai team e le esperienze interattive (PC e VR) curate nel dettaglio.
+                        </p>
+                    </section>
 
-            <div class="cv-two-cols">
-                <section class="cv-section">
-                    <div class="cv-section-title">Esperienza</div>
+                    <section class="cv-section">
+                        <div class="cv-section-title">Esperienza</div>
+                        <div class="cv-section-underline"></div>
 
-                    <div class="cv-job">
-                        <div class="cv-job-title">Sviluppatore .NET / Full Stack</div>
-                        <div class="cv-job-meta">[Azienda] · [Città] · [Anno – presente]</div>
+                        <!-- ESPERIENZA 1 -->
+                        <div class="cv-job">
+                            <div class="cv-job-header">
+                                <div class="cv-job-title">Sviluppatore .NET / Full Stack</div>
+                                <div class="cv-job-meta">[Anno – Presente]</div>
+                            </div>
+                            <div class="cv-job-company">[Azienda] · [Città]</div>
+                            <ul class="cv-list">
+                                <li>Sviluppo di applicazioni web e desktop in .NET.</li>
+                                <li>Progettazione e integrazione di API REST e gestione database SQL.</li>
+                                <li>Collaborazione con stakeholder non tecnici per definire requisiti e priorità.</li>
+                            </ul>
+                        </div>
+
+                        <!-- ESPERIENZA 2 -->
+                        <div class="cv-job">
+                            <div class="cv-job-header">
+                                <div class="cv-job-title">Game Developer (Unity)</div>
+                                <div class="cv-job-meta">[Anni]</div>
+                            </div>
+                            <div class="cv-job-company">Progetti personali / freelance</div>
+                            <ul class="cv-list">
+                                <li>Realizzazione di giochi PC e VR (HoverNivaZ, Astragheddon, ecc.).</li>
+                                <li>Implementazione di gameplay, IA avversari, UI e sistemi di salvataggio.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Aggiungi altre esperienze qui se necessario -->
+                    </section>
+
+                    <section class="cv-section">
+                        <div class="cv-section-title">Progetti selezionati</div>
+                        <div class="cv-section-underline"></div>
                         <ul class="cv-list">
-                            <li>Sviluppo di applicazioni web e desktop in .NET.</li>
-                            <li>Progettazione e integrazione di API REST e flussi di automazione.</li>
-                            <li>Collaborazione con stakeholder non tecnici per definire requisiti e priorità.</li>
+                            <li><strong>GeCo2:</strong> sistema per comunicazioni massive, gestione ruoli, filtri avanzati, allegati e log parlanti.</li>
+                            <li><strong>HoverNivaZ:</strong> gioco di corse futuristiche con gestione giri, IA, posizioni in tempo reale e UI dedicata.</li>
+                            <li><strong>Astragheddon:</strong> shooter VR con punteggi, classifiche e modalità differenziate per bambini/adulti.</li>
                         </ul>
+                    </section>
+                </div>
+
+                <!-- Colonna destra -->
+                <div>
+                    <div class="cv-side-card">
+                        <div class="cv-side-card-title">Competenze tecniche</div>
+                        <div class="cv-tag-list">
+                            <span class="cv-tag strong">C#</span>
+                            <span class="cv-tag">.NET / ASP.NET Core</span>
+                            <span class="cv-tag">Blazor</span>
+                            <span class="cv-tag">REST API</span>
+                            <span class="cv-tag">SQL Server / SQLite</span>
+                            <span class="cv-tag">Entity Framework</span>
+                            <span class="cv-tag strong">Unity</span>
+                            <span class="cv-tag">VR (Meta Quest)</span>
+                            <span class="cv-tag">Git / GitHub</span>
+                            <span class="cv-tag">Windows / Linux</span>
+                        </div>
                     </div>
 
-                    <div class="cv-job">
-                        <div class="cv-job-title">Game Developer (Unity)</div>
-                        <div class="cv-job-meta">Progetti personali / freelance · [Anni]</div>
-                        <ul class="cv-list">
-                            <li>Realizzazione di giochi PC e VR (es. HoverNivaZ, Astragheddon).</li>
-                            <li>Implementazione di gameplay, IA, UI e sistemi di salvataggio.</li>
-                        </ul>
+                    <div class="cv-side-card">
+                        <div class="cv-side-card-title">Formazione</div>
+                        <p class="cv-side-text">
+                            [Titolo di studio] – [Istituto] – [Anno]<br />
+                            Corsi e certificazioni in ambito sviluppo software e sistemi operativi (es. preparazione LPIC-1, ecc.).
+                        </p>
                     </div>
-                </section>
 
-                <section class="cv-section">
-                    <div class="cv-section-title">Competenze tecniche</div>
-                    <ul class="cv-list">
-                        <li><strong>Linguaggi:</strong> C#, JavaScript, SQL</li>
-                        <li><strong>Framework:</strong> .NET, ASP.NET Core, Blazor</li>
-                        <li><strong>Database:</strong> SQL Server, SQLite</li>
-                        <li><strong>Game Engine:</strong> Unity (PC, VR)</li>
-                        <li><strong>Tools:</strong> Git, GitHub, VS, VS Code</li>
-                        <li><strong>Altro:</strong> Linux basics, automazione tool interni</li>
-                    </ul>
+                    <div class="cv-side-card">
+                        <div class="cv-side-card-title">Lingue</div>
+                        <p class="cv-side-text">
+                            Italiano – Madrelingua<br />
+                            Inglese
+                        </p>
+                    </div>
 
-                    <div class="cv-section-title">Formazione</div>
-                    <p>
-                        [Titolo di studio] – [Istituto] – [Anno]<br />
-                        Eventuali corsi / certificazioni (es. LPIC-1 in corso, ecc.).
-                    </p>
-
-                    <div class="cv-section-title">Lingue</div>
-                    <p>
-                        Italiano – Madrelingua<br />
-                        Inglese – [Livello] (es. B2)
-                    </p>
-                </section>
+                    <div class="cv-side-card">
+                        <div class="cv-side-card-title">Soft skills</div>
+                        <div class="cv-tag-list">
+                            <span class="cv-tag">Problem solving</span>
+                            <span class="cv-tag">Autonomia</span>
+                            <span class="cv-tag">Comunicazione con non tecnici</span>
+                            <span class="cv-tag">Lavoro in team</span>
+                            <span class="cv-tag">Formazione / mentoring</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <section class="cv-section">
-                <div class="cv-section-title">Progetti rilevanti</div>
-                <ul class="cv-list">
-                    <li><strong>GeCo2:</strong> sistema per comunicazioni massive, ruoli e filtri avanzati sui destinatari.</li>
-                    <li><strong>HoverNivaZ:</strong> gioco di corse futuristiche con gestione giri, IA e sistemi di gara.</li>
-                    <li><strong>Astragheddon:</strong> shooter VR con gestione punteggi, classifiche e modalità per bambini/adulti.</li>
-                </ul>
-            </section>
         </div>
     </div>
 
