@@ -76,8 +76,8 @@
         }
 
         .cv-avatar-circle {
-            min-width: 72px;
-            min-height: 72px;
+            min-width: 92px;
+            min-height: 92px;
             border-radius: 999px;
             background: #ffffff;
             display: flex;
@@ -86,9 +86,7 @@
             color: var(--cv-blue);
             font-weight: 700;
             font-size: 26px;
-            box-shadow:
-                0 0 0 4px rgba(255, 255, 255, 0.25),
-                0 12px 26px rgba(0, 0, 0, 0.45);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25), 0 12px 26px rgba(0, 0, 0, 0.45);
         }
 
         .cv-contact-strip {
@@ -114,9 +112,9 @@
             text-decoration: none;
         }
 
-        .cv-contact-value a:hover {
-            text-decoration: underline;
-        }
+            .cv-contact-value a:hover {
+                text-decoration: underline;
+            }
 
         /* Layout contenuto principale */
         .cv-body {
@@ -192,9 +190,9 @@
             color: var(--cv-text-muted);
         }
 
-        .cv-list li {
-            margin-bottom: 3px;
-        }
+            .cv-list li {
+                margin-bottom: 3px;
+            }
 
         /* Colonna destra: box tondeggianti */
         .cv-side-card {
@@ -226,11 +224,11 @@
             color: var(--cv-text-muted);
         }
 
-        .cv-tag.strong {
-            background: var(--cv-blue);
-            color: #ffffff;
-            border-color: transparent;
-        }
+            .cv-tag.strong {
+                background: var(--cv-blue);
+                color: #ffffff;
+                border-color: transparent;
+            }
 
         .cv-side-text {
             font-size: 13px;
@@ -259,52 +257,80 @@
             text-decoration: none;
         }
 
-        .cv-print-button:hover {
-            border-color: var(--cv-red);
+            .cv-print-button:hover {
+                border-color: var(--cv-red);
+            }
+
+        @page {
+            size: A4;
+            margin: 0;
         }
 
-        /* Stampa: PDF pulito */
         @media print {
-            body {
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            html, body {
+                margin: 0 !important;
+                padding: 0 !important;
                 background: #ffffff !important;
             }
+
             .site-header,
             .site-footer,
-            .cv-print-bar {
+            .cv-print-bar,
+            .page-gradient-bg {
                 display: none !important;
             }
+
             .cv-wrapper {
-                padding: 0;
+                padding: 0 !important;
             }
+
             .cv-page {
-                box-shadow: none;
-                border-radius: 0;
-                max-width: 100%;
-                width: 100%;
-                padding: 16px 20px;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 16px 24px !important;
+            }
+
+            .cv-body {
+                display: grid !important;
+                grid-template-columns: 1.5fr 1fr !important;
+                gap: 24px !important;
             }
         }
 
-        @media (max-width: 960px) {
+
+
+        @media screen and (max-width: 960px) {
             .cv-page {
                 padding: 26px 20px 24px;
             }
+
             .cv-body {
                 grid-template-columns: 1fr;
             }
+
             .cv-banner {
                 flex-direction: column;
                 align-items: flex-start;
             }
+
             .cv-avatar-circle {
                 align-self: flex-end;
             }
+
             .cv-print-bar {
                 position: static;
                 margin-bottom: 10px;
                 text-align: right;
             }
         }
+
     </style>
 </head>
 <body>
@@ -332,46 +358,53 @@
                 </button>
             </div>
 
-            <!-- Banner superiore blu -->
             <div class="cv-banner">
-                <div class="cv-heading-main">
-                    <div class="cv-badge">Curriculum Vitae</div>
-                    <div class="cv-name">Ivan Calogero</div>
-                    <div class="cv-role">Sviluppatore .NET &amp; Game Developer</div>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="cv-heading-main">
+                                <div class="cv-badge">Curriculum Vitae</div>
+                                <div class="cv-name">Ivan Calogero</div>
+                                <div class="cv-role">Sviluppatore .NET &amp; Game Developer</div>
 
-                    <div class="cv-contact-strip">
-                        <div class="cv-contact-item">
-                            <span class="cv-contact-label">Email</span>
-                            <span class="cv-contact-value">
-                                <a href="mailto:tuamail@example.com">tuamail@example.com</a>
-                            </span>
-                        </div>
-                        <div class="cv-contact-item">
-                            <span class="cv-contact-label">GitHub</span>
-                            <span class="cv-contact-value">
-                                <a href="https://github.com/ivan-calogero">github.com/ivan-calogero</a>
-                            </span>
-                        </div>
-                        <!-- Aggiungi LinkedIn / telefono / città se vuoi -->
-                        <!--
-                        <div class="cv-contact-item">
-                            <span class="cv-contact-label">LinkedIn</span>
-                            <span class="cv-contact-value">
-                                <a href="https://www.linkedin.com/in/...">linkedin.com/in/...</a>
-                            </span>
-                        </div>
-                        -->
-                    </div>
-                </div>
+                                <div class="cv-contact-strip">
+                                    <div class="cv-contact-item">
+                                        <span class="cv-contact-label">Email</span>
+                                        <span class="cv-contact-value">
+                                            <a href="mailto:i.calogero.dev@gmail.com">i.calogero.dev@gmail.com</a>
+                                        </span>
+                                    </div>
+                                    <div class="cv-contact-item">
+                                        <span class="cv-contact-label">Mobile</span>
+                                        <span class="cv-contact-value">
+                                            <a href="tel:+393276823951" id="phone-link">(+39) 327 68 23 951</a>
+                                        </span>
+                                    </div>
+                                    <div class="cv-contact-item">
+                                        <span class="cv-contact-label">Web</span>
+                                        <span class="cv-contact-value">
+                                            <a href="https://ivan-calogero.github.io/">ivan-calogero.github.io</a>
+                                        </span>
+                                    </div>
+                                    <!--<div class="cv-contact-item">
+                                        <span class="cv-contact-label">LinkedIn</span>
+                                        <a href="https://www.linkedin.com/in/ivan-calogero" target="_blank" rel="noopener">
+                                            Linkedin -> Ivan Calogero
+                                        </a>
+                                    </div>-->
 
-                <div class="cv-avatar-circle">
-                    IC
-                </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cv-avatar-circle" style="background-image: url('./assets/images/avatar.jpg'); background-position: center; background-size: 92px">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
 
-            <!-- Corpo CV -->
             <div class="cv-body">
-                <!-- Colonna sinistra -->
                 <div>
                     <section class="cv-section">
                         <div class="cv-section-title">Profilo</div>
@@ -391,34 +424,89 @@
                         <div class="cv-section-title">Esperienza</div>
                         <div class="cv-section-underline"></div>
 
-                        <!-- ESPERIENZA 1 -->
                         <div class="cv-job">
                             <div class="cv-job-header">
                                 <div class="cv-job-title">Sviluppatore .NET / Full Stack</div>
-                                <div class="cv-job-meta">[Anno – Presente]</div>
+                                <div class="cv-job-meta">[2025 – Presente]</div>
                             </div>
-                            <div class="cv-job-company">[Azienda] · [Città]</div>
+                            <div class="cv-job-company">[I&M Consulting] · [Remoto]</div>
                             <ul class="cv-list">
-                                <li>Sviluppo di applicazioni web e desktop in .NET.</li>
-                                <li>Progettazione e integrazione di API REST e gestione database SQL.</li>
-                                <li>Collaborazione con stakeholder non tecnici per definire requisiti e priorità.</li>
+                                <li>
+                                    Full stack developer per software gestionale web
+                                    multiprogetto ministeriale
+                                </li>
                             </ul>
                         </div>
 
-                        <!-- ESPERIENZA 2 -->
+                        <div class="cv-job">
+                            <div class="cv-job-header">
+                                <div class="cv-job-title">Sviluppatore .NET / Full Stack</div>
+                                <div class="cv-job-meta">[2017 – 2025]</div>
+                            </div>
+                            <div class="cv-job-company">[Business & Knowledge] · [Roma/Remoto]</div>
+                            <ul class="cv-list">
+                                <li>
+                                    Sviluppo gestionali e servizi intranet per Enti della
+                                    Pubblica Amministrazione (Ministero dell’Interno,
+                                    Difesa, Giustizia, VVF, INGV, etc)
+                                </li>
+                                <li>
+                                    Creazione software Desktop
+                                </li>
+                                <li>
+                                    Gestione e manutenzione servers da remoto
+                                </li>
+                                <li>
+                                    Consulenza e analisi dei flussi di lavoro
+                                </li>
+                                <li>
+                                    Gestione trasmissione dati criptati in reti protette
+                                </li>
+                                <li>
+                                    Integrazione Al e nuove tecnologie
+                                </li>
+                            </ul>
+                        </div>
+
                         <div class="cv-job">
                             <div class="cv-job-header">
                                 <div class="cv-job-title">Game Developer (Unity)</div>
-                                <div class="cv-job-meta">[Anni]</div>
+                                <div class="cv-job-meta">[2019 - Presente]</div>
                             </div>
                             <div class="cv-job-company">Progetti personali / freelance</div>
                             <ul class="cv-list">
-                                <li>Realizzazione di giochi PC e VR (HoverNivaZ, Astragheddon, ecc.).</li>
+                                <li>Realizzazione di giochi Android, PC e VR (HoverNivaZ, Astragheddon, ecc.).</li>
                                 <li>Implementazione di gameplay, IA avversari, UI e sistemi di salvataggio.</li>
+                                <li>Sviluppo di esperienze immersive.</li>
+                                <li>Ricerca e Sviluppo per soluzioni MixedReality.</li>
                             </ul>
                         </div>
 
-                        <!-- Aggiungi altre esperienze qui se necessario -->
+                        <div class="cv-job">
+                            <div class="cv-job-header">
+                                <div class="cv-job-title">Sviluppatore hybrid (Web-Unity)</div>
+                                <div class="cv-job-meta">[2019 - 2021]</div>
+                            </div>
+                            <div class="cv-job-company">Startup/Holding</div>
+                            <ul class="cv-list">
+                                <li>Realizzazione software avanzato Unity WebGL</li>
+                                <li>Integrazioni per la gestione di ristoranti</li>
+                                <li>API REST</li>
+                            </ul>
+                        </div>
+
+                        <div class="cv-job">
+                            <div class="cv-job-header">
+                                <div class="cv-job-title">Tecnico informatico</div>
+                                <div class="cv-job-meta">[2010 - 2019]</div>
+                            </div>
+                            <div class="cv-job-company">Freelance</div>
+                            <ul class="cv-list">
+                                <li>Assistenza informatica e recupero dati</li>
+                                <li>Gestione siti web</li>
+                            </ul>
+                        </div>
+
                     </section>
 
                     <section class="cv-section">
@@ -432,7 +520,6 @@
                     </section>
                 </div>
 
-                <!-- Colonna destra -->
                 <div>
                     <div class="cv-side-card">
                         <div class="cv-side-card-title">Competenze tecniche</div>
@@ -441,10 +528,10 @@
                             <span class="cv-tag">.NET / ASP.NET Core</span>
                             <span class="cv-tag">Blazor</span>
                             <span class="cv-tag">REST API</span>
-                            <span class="cv-tag">SQL Server / SQLite</span>
+                            <span class="cv-tag">SQL Server / PostgreSQL</span>
                             <span class="cv-tag">Entity Framework</span>
                             <span class="cv-tag strong">Unity</span>
-                            <span class="cv-tag">VR (Meta Quest)</span>
+                            <span class="cv-tag">VR (Meta Quest + SteamVR)</span>
                             <span class="cv-tag">Git / GitHub</span>
                             <span class="cv-tag">Windows / Linux</span>
                         </div>
@@ -453,7 +540,37 @@
                     <div class="cv-side-card">
                         <div class="cv-side-card-title">Formazione</div>
                         <p class="cv-side-text">
-                            [Titolo di studio] – [Istituto] – [Anno]<br />
+                            [Sicurezza e GDPR] – [Aziendale] – [2025]<br />
+                            Corsi e certificazioni online in ambito di sicurezza aziendale
+                        </p>
+                        <hr />
+                        <p class="cv-side-text">
+                            [NVIDIA CUDA] – [Online] – [2025]<br />
+                            Corso e certificazione Udemy su CUDA NVIDIA (ambito HPC)
+                        </p>
+                        <hr />
+                        <p class="cv-side-text">
+                            [Programmazione HPC] – [Online] – [2025]<br />
+                            Certificazione online sulla programmazione ottimizzata per HPC
+                        </p>
+                        <hr />
+                        <p class="cv-side-text">
+                            [AI Prompt Engineering] – [Online] – [2024]<br />
+                            Corsi e certificazione sull'ingegneria del prompt (GPT)'
+                        </p>
+                        <hr />
+                        <p class="cv-side-text">
+                            [Perito forense] – [Istituto Volta] – [2017]<br />
+                            Certificazione di perito forense per data recovery (linux) e catena di custodia
+                        </p>
+                        <hr />
+                        <p class="cv-side-text">
+                            [Diploma] – [IC3 E P.E.K.I.T] – [2010]<br />
+                            Corsi e diploma in ambito informatico sull'utilizzo software e gestione PC
+                        </p>
+                        <hr />
+                        <p class="cv-side-text">
+                            [Diploma Elettronica e Telecomunicazioni] – [Cardano] – [2010]<br />
                             Corsi e certificazioni in ambito sviluppo software e sistemi operativi (es. preparazione LPIC-1, ecc.).
                         </p>
                     </div>
@@ -471,7 +588,7 @@
                         <div class="cv-tag-list">
                             <span class="cv-tag">Problem solving</span>
                             <span class="cv-tag">Autonomia</span>
-                            <span class="cv-tag">Comunicazione con non tecnici</span>
+                            <span class="cv-tag">Comunicazione</span>
                             <span class="cv-tag">Lavoro in team</span>
                             <span class="cv-tag">Formazione / mentoring</span>
                         </div>
