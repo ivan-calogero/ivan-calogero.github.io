@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const updatePageBgParallax = () => {
             const scrollY = window.scrollY || window.pageYOffset || 0;
 
-            const factor = 0.06;    // quanto si muove rispetto allo scroll
+            const factor = 0.1;    // quanto si muove rispetto allo scroll
             const maxOffset = 120;  // limite massimo in px
 
             let offset = scrollY * factor * -1; // verso opposto allo scroll
@@ -70,5 +70,22 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener("resize", updatePageBgParallax);
         updatePageBgParallax();
     }
+    // Menu mobile (hamburger)
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelectorAll(".site-nav a");
 
+    if (menuToggle) {
+        menuToggle.addEventListener("click", () => {
+            document.body.classList.toggle("nav-open");
+        });
+    }
+
+    // Chiudi il menu quando clicchi un link (su mobile)
+    navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            if (document.body.classList.contains("nav-open")) {
+                document.body.classList.remove("nav-open");
+            }
+        });
+    });
 });

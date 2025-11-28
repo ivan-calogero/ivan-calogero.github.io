@@ -21,359 +21,33 @@
             background: radial-gradient(circle at top, #05070d 0, #020206 55%, #000 100%);
         }
 
-        .cv-wrapper {
-            padding: 80px 9vw 60px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .cv-page {
-            background: #ffffff;
-            color: var(--cv-text-main);
-            max-width: 900px;
-            width: 100%;
-            border-radius: 26px;
-            padding: 32px 40px 34px;
-            box-shadow: 0 22px 70px rgba(0, 0, 0, 0.75);
-            position: relative;
-        }
-
-        .cv-banner {
-            background: linear-gradient(135deg, var(--cv-blue), var(--cv-blue-soft));
-            border-radius: 20px;
-            padding: 18px 22px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            color: #f8fafc;
-            margin-bottom: 22px;
-        }
-
-        .cv-heading-main {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-
-        .cv-avatar-wrapper {
-            flex-shrink: 0;
-        }
-
-        .cv-avatar-circle {
-            min-width: 92px;
-            min-height: 92px;
-            border-radius: 999px;
-            background: #ffffff;
-            display: flex; 
-            align-items: center;
-            justify-content: center;
-            color: var(--cv-blue);
-            font-weight: 700;
-            font-size: 26px;
-            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25), 0 12px 26px rgba(0, 0, 0, 0.45);
-        }
-
-        .cv-name {
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-        }
-
-        .cv-role {
-            font-size: 15px;
-            opacity: 0.9;
-        }
-
-        .cv-badge {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            opacity: 0.7;
-        }
-
-
-        .cv-avatar-cell {
-            text-align: right;
-            vertical-align: middle;
-        }
-
-
-        .cv-contact-strip {
-            margin-top: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            font-size: 13px;
-        }
-
-        .cv-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .cv-contact-label {
-            font-weight: 600;
-        }
-
-        .cv-contact-value a {
-            color: #ffe6ea;
-            text-decoration: none;
-        }
-
-            .cv-contact-value a:hover {
-                text-decoration: underline;
-            }
-
-        /* Layout contenuto principale */
-        .cv-body {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 24px;
-        }
-
-        .cv-section-title {
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--cv-blue);
-            margin-bottom: 6px;
-        }
-
-        .cv-section-underline {
-            width: 52px;
-            height: 3px;
-            border-radius: 999px;
-            background: var(--cv-red);
-            margin-bottom: 10px;
-        }
-
-        .cv-section {
-            font-size: 13px;
-            color: var(--cv-text-main);
-            margin-bottom: 16px;
-        }
-
-        .cv-paragraph {
-            margin: 0 0 6px;
-            color: var(--cv-text-muted);
-            line-height: 1.45;
-        }
-
-        /* Esperienze (timeline soft) */
-        .cv-job {
-            margin-bottom: 12px;
-            padding: 10px 12px;
-            border-radius: 14px;
-            background: var(--cv-blue-light);
-        }
-
-        .cv-job-header {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 4px;
-        }
-
-        .cv-job-title {
-            font-weight: 600;
-        }
-
-        .cv-job-meta {
-            font-size: 12px;
-            color: var(--cv-text-muted);
-            text-align: right;
-            white-space: nowrap;
-        }
-
-        .cv-job-company {
-            font-size: 12px;
-            color: var(--cv-text-muted);
-            margin-bottom: 4px;
-        }
-
-        .cv-list {
-            margin: 0;
-            padding-left: 18px;
-            color: var(--cv-text-muted);
-        }
-
-            .cv-list li {
-                margin-bottom: 3px;
-            }
-
-        /* Colonna destra: box tondeggianti */
-        .cv-side-card {
-            background: var(--cv-blue-light);
-            border-radius: 18px;
-            padding: 12px 14px 10px;
-            margin-bottom: 14px;
-        }
-
-        .cv-side-card-title {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--cv-blue);
-            margin-bottom: 6px;
-        }
-
-        .cv-tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            font-size: 12px;
-        }
-
-        .cv-tag {
-            padding: 4px 9px;
-            border-radius: 999px;
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            color: var(--cv-text-muted);
-        }
-
-            .cv-tag.strong {
-                background: var(--cv-blue);
-                color: #ffffff;
-                border-color: transparent;
-            }
-
-        .cv-side-text {
-            font-size: 13px;
-            color: var(--cv-text-muted);
-            margin: 0;
-        }
-
-        .cv-print-bar {
-            position: absolute;
-            top: -38px;
-            right: 12px;
-        }
-
-        .cv-print-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 7px 14px;
-            border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.25);
-            background: rgba(10, 10, 18, 0.96);
-            color: #f5f5f7;
-            cursor: pointer;
-            font-size: 12px;
-            text-decoration: none;
-        }
-
-            .cv-print-button:hover {
-                border-color: var(--cv-red);
-            }
-
-        @page {
-            size: A4;
-            margin: 12mm 15mm; /* sopra/sotto 12mm, dx/sx 15mm */
-        }
-
-        @media print {
-            * {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            html, body {
-                margin: 0 !important;
-                padding: 0 !important;
-                background: #ffffff !important;
-            }
-
-            .site-header,
-            .site-footer,
-            .cv-print-bar,
-            .page-gradient-bg {
-                display: none !important;
-            }
-
-            .cv-wrapper {
-                padding: 0 !important;
-            }
-
-            .cv-page {
-                box-shadow: none !important;
-                border-radius: 0 !important;
-                max-width: 100% !important;
-                width: 100% !important;
-                padding: 0 !important;
-            }
-
-            .cv-body {
-                display: grid !important;
-                grid-template-columns: 1.5fr 1fr !important;
-                gap: 24px !important;
-            }
-
-            .cv-job,
-            .cv-side-card {
-                page-break-inside: avoid;
-                break-inside: avoid;
-            }
-
-            /* Volendo anche le sezioni intere */
-            /*.cv-section {
-                page-break-inside: avoid;
-                break-inside: avoid;
-            }*/
-        }
-
-
-
-        @media screen and (max-width: 960px) {
-            .cv-page {
-                padding: 26px 20px 24px;
-            }
-
-            .cv-body {
-                grid-template-columns: 1fr;
-            }
-
-            .cv-banner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .cv-avatar-wrapper {
-                align-self: flex-end; /* avatar in alto a destra su mobile */
-                margin-top: 8px;
-            }
-
-            /*.cv-avatar-circle {
-                align-self: flex-end;
-            }
-*/
-            .cv-print-bar {
-                position: static;
-                margin-bottom: 10px;
-                text-align: right;
-            }
-        }
+        
 
     </style>
 </head>
 <body>
-    <!-- Header del sito -->
+    <div class="page-bg-image"></div>
+    <div class="page-gradient-bg"></div>
+
     <header class="site-header">
         <div class="logo">
-            <span class="logo-mark">IC</span>
-            <span class="logo-text">Ivan&nbsp;Calogero</span>
+            <a href="index.html">
+                <div class="cv-avatar-circle" style="max-height: 48px !important; max-width: 48px !important; min-height: 48px !important; min-width: 48px !important; background-image: url('./assets/images/avatar.jpg'); background-position: center; background-size: 64px; corner-bottom-left-shape: square; ">
+                </div>
+            </a>
+            <span class="logo-text">  Ivan&nbsp;Calogero</span>
         </div>
-
+        <button class="menu-toggle" aria-label="Apri il menu di navigazione">
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+        </button>
         <nav class="site-nav">
-            <a href="index.html#about">Chi sono</a>
-            <a href="index.html#projects">Progetti</a>
-            <a href="index.html#skills">Competenze</a>
-            <a href="index.html#contact">Contatti</a>
-            <a href="cv.html">Curriculum</a>
+            <a href="#about">Chi sono</a>
+            <a href="#projects">Progetti</a>
+            <a href="#skills">Competenze</a>
+            <a href="#contact">Contatti</a>
+            <a href="./cv.html">Curriculum</a>
         </nav>
     </header>
 
@@ -420,7 +94,7 @@
             </div>
 
 
-           
+
 
             <div class="cv-body">
                 <div>
