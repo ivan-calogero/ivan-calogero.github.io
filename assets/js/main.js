@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const updatePageBgParallax = () => {
             const scrollY = window.scrollY || window.pageYOffset || 0;
 
-            const factor = 0.15;    // quanto si muove rispetto allo scroll
+            const factor = 0.06;    // quanto si muove rispetto allo scroll
             const maxOffset = 120;  // limite massimo in px
 
             let offset = scrollY * factor * -1; // verso opposto allo scroll

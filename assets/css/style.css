@@ -42,7 +42,8 @@ body {
 .page-bg-image {
     position: fixed;
     inset: 0;
-    background-image: url("../images/nivaz-header.png");
+    /*background-image: url("../images/nivaz-header.png");*/
+    background-image: url("../images/nivaz-header2.jpg");
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
