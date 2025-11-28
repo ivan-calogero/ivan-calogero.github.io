@@ -46,11 +46,11 @@ body {
     right: 0;
     height: 150vh; /* 100vh + 20vh sopra + 20vh sotto */
     /*background-image: url("../images/nivaz-header.png");*/
-    background-image: url("../images/nivaz-header2.jpg");
+    background-image: url("../images/nivaz-header3.jpg");
     /*background-size: cover;*/
     background-position: top;
     /*background-repeat: no-repeat;*/
-    opacity: 0.4;
+    opacity: 0.9;
     transform: translateY(var(--page-bg-offset));
     will-change: transform;
     filter: saturate(1.05) contrast(1.05);
