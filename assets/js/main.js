@@ -49,31 +49,26 @@ document.addEventListener("DOMContentLoaded", () => {
         // Fallback semplice se IntersectionObserver non è disponibile
         revealElements.forEach((el) => el.classList.add("visible"));
     }
-
-    // Parallax hero (versione semplice basata su scrollY)
-    const hero = document.querySelector(".hero");
-    if (hero) {
-        const updateHeroParallax = () => {
+    // Parallax sfondo globale (page-bg-image)
+    const pageBg = document.querySelector(".page-bg-image");
+    if (pageBg) {
+        const updatePageBgParallax = () => {
             const scrollY = window.scrollY || window.pageYOffset || 0;
 
+            const factor = 0.15;    // quanto si muove rispetto allo scroll
+            const maxOffset = 120;  // limite massimo in px
 
-            // quanto deve muoversi per pixel di scroll
-            const factor = 0.95;      // prova 0.25 / 0.3
-            const maxOffset = 80;     // massimo spostamento in px
+            let offset = scrollY * factor * -1; // verso opposto allo scroll
 
-            let offset = scrollY * factor;
-            console.log(offset);
-
-            //// limitiamo l'offset per non farla “uscire”
             //if (offset > maxOffset) offset = maxOffset;
             //if (offset < -maxOffset) offset = -maxOffset;
 
-            hero.style.setProperty("--hero-bg-offset", `${offset}px`);
+            pageBg.style.setProperty("--page-bg-offset", `${offset.toFixed(1)}px`);
         };
 
-        window.addEventListener("scroll", updateHeroParallax, { passive: true });
-        window.addEventListener("resize", updateHeroParallax);
-        updateHeroParallax();
+        window.addEventListener("scroll", updatePageBgParallax, { passive: true });
+        window.addEventListener("resize", updatePageBgParallax);
+        updatePageBgParallax();
     }
 
 });
