@@ -49,4 +49,31 @@ document.addEventListener("DOMContentLoaded", () => {
         // Fallback semplice se IntersectionObserver non è disponibile
         revealElements.forEach((el) => el.classList.add("visible"));
     }
+
+    // Parallax hero (versione semplice basata su scrollY)
+    const hero = document.querySelector(".hero");
+    if (hero) {
+        const updateHeroParallax = () => {
+            const scrollY = window.scrollY || window.pageYOffset || 0;
+
+
+            // quanto deve muoversi per pixel di scroll
+            const factor = 0.95;      // prova 0.25 / 0.3
+            const maxOffset = 80;     // massimo spostamento in px
+
+            let offset = scrollY * factor;
+            console.log(offset);
+
+            //// limitiamo l'offset per non farla “uscire”
+            //if (offset > maxOffset) offset = maxOffset;
+            //if (offset < -maxOffset) offset = -maxOffset;
+
+            hero.style.setProperty("--hero-bg-offset", `${offset}px`);
+        };
+
+        window.addEventListener("scroll", updateHeroParallax, { passive: true });
+        window.addEventListener("resize", updateHeroParallax);
+        updateHeroParallax();
+    }
+
 });

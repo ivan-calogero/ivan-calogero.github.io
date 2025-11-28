@@ -38,7 +38,6 @@
             position: relative;
         }
 
-        /* Barra superiore blu arrotondata */
         .cv-banner {
             background: linear-gradient(135deg, var(--cv-blue), var(--cv-blue-soft));
             border-radius: 20px;
@@ -55,6 +54,25 @@
             display: flex;
             flex-direction: column;
             gap: 4px;
+        }
+
+
+        .cv-avatar-wrapper {
+            flex-shrink: 0;
+        }
+
+        .cv-avatar-circle {
+            min-width: 92px;
+            min-height: 92px;
+            border-radius: 999px;
+            background: #ffffff;
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            color: var(--cv-blue);
+            font-weight: 700;
+            font-size: 26px;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25), 0 12px 26px rgba(0, 0, 0, 0.45);
         }
 
         .cv-name {
@@ -75,19 +93,12 @@
             opacity: 0.7;
         }
 
-        .cv-avatar-circle {
-            min-width: 92px;
-            min-height: 92px;
-            border-radius: 999px;
-            background: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--cv-blue);
-            font-weight: 700;
-            font-size: 26px;
-            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25), 0 12px 26px rgba(0, 0, 0, 0.45);
+
+        .cv-avatar-cell {
+            text-align: right;
+            vertical-align: middle;
         }
+
 
         .cv-contact-strip {
             margin-top: 10px;
@@ -236,7 +247,6 @@
             margin: 0;
         }
 
-        /* Barra con bottone stampa */
         .cv-print-bar {
             position: absolute;
             top: -38px;
@@ -263,7 +273,7 @@
 
         @page {
             size: A4;
-            margin: 0;
+            margin: 12mm 15mm; /* sopra/sotto 12mm, dx/sx 15mm */
         }
 
         @media print {
@@ -294,7 +304,7 @@
                 border-radius: 0 !important;
                 max-width: 100% !important;
                 width: 100% !important;
-                padding: 16px 24px !important;
+                padding: 0 !important;
             }
 
             .cv-body {
@@ -302,6 +312,18 @@
                 grid-template-columns: 1.5fr 1fr !important;
                 gap: 24px !important;
             }
+
+            .cv-job,
+            .cv-side-card {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            /* Volendo anche le sezioni intere */
+            /*.cv-section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }*/
         }
 
 
@@ -320,10 +342,15 @@
                 align-items: flex-start;
             }
 
-            .cv-avatar-circle {
-                align-self: flex-end;
+            .cv-avatar-wrapper {
+                align-self: flex-end; /* avatar in alto a destra su mobile */
+                margin-top: 8px;
             }
 
+            /*.cv-avatar-circle {
+                align-self: flex-end;
+            }
+*/
             .cv-print-bar {
                 position: static;
                 margin-bottom: 10px;
@@ -359,50 +386,41 @@
             </div>
 
             <div class="cv-banner">
-                <table>
-                    <tr>
-                        <td>
-                            <div class="cv-heading-main">
-                                <div class="cv-badge">Curriculum Vitae</div>
-                                <div class="cv-name">Ivan Calogero</div>
-                                <div class="cv-role">Sviluppatore .NET &amp; Game Developer</div>
+                <div class="cv-heading-main">
+                    <div class="cv-badge">Curriculum Vitae</div>
+                    <div class="cv-name">Ivan Calogero</div>
+                    <div class="cv-role">Sviluppatore .NET &amp; Game Developer</div>
 
-                                <div class="cv-contact-strip">
-                                    <div class="cv-contact-item">
-                                        <span class="cv-contact-label">Email</span>
-                                        <span class="cv-contact-value">
-                                            <a href="mailto:i.calogero.dev@gmail.com">i.calogero.dev@gmail.com</a>
-                                        </span>
-                                    </div>
-                                    <div class="cv-contact-item">
-                                        <span class="cv-contact-label">Mobile</span>
-                                        <span class="cv-contact-value">
-                                            <a href="tel:+393276823951" id="phone-link">(+39) 327 68 23 951</a>
-                                        </span>
-                                    </div>
-                                    <div class="cv-contact-item">
-                                        <span class="cv-contact-label">Web</span>
-                                        <span class="cv-contact-value">
-                                            <a href="https://ivan-calogero.github.io/">ivan-calogero.github.io</a>
-                                        </span>
-                                    </div>
-                                    <!--<div class="cv-contact-item">
-                                        <span class="cv-contact-label">LinkedIn</span>
-                                        <a href="https://www.linkedin.com/in/ivan-calogero" target="_blank" rel="noopener">
-                                            Linkedin -> Ivan Calogero
-                                        </a>
-                                    </div>-->
+                    <div class="cv-contact-strip">
+                        <div class="cv-contact-item">
+                            <span class="cv-contact-label">Email</span>
+                            <span class="cv-contact-value">
+                                <a href="mailto:i.calogero.dev@gmail.com">i.calogero.dev@gmail.com</a>
+                            </span>
+                        </div>
+                        <div class="cv-contact-item">
+                            <span class="cv-contact-label">Mobile</span>
+                            <span class="cv-contact-value">
+                                <a href="tel:+393276823951" id="phone-link">(+39) 327 68 23 951</a>
+                            </span>
+                        </div>
+                        <div class="cv-contact-item">
+                            <span class="cv-contact-label">Web</span>
+                            <span class="cv-contact-value">
+                                <a href="https://ivan-calogero.github.io/">ivan-calogero.github.io</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
 
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="cv-avatar-circle" style="background-image: url('./assets/images/avatar.jpg'); background-position: center; background-size: 92px">
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                <div class="cv-avatar-wrapper">
+                    <div class="cv-avatar-circle" style="background-image: url('./assets/images/avatar.jpg'); background-position: center; background-size: 92px; corner-bottom-left-shape: square;">
+                    </div>
+                </div>
             </div>
+
+
+           
 
             <div class="cv-body">
                 <div>

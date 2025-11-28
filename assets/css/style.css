@@ -2,7 +2,7 @@
     --bg-main: #050509;
     --bg-elevated: #101018;
     --bg-elevated-soft: #151524;
-    --accent: #ff3040;              /* Rosso principale NivaZ */
+    --accent: #ff3040; /* Rosso principale NivaZ */
     --accent-soft: rgba(255, 48, 64, 0.18);
     --accent-strong: #ff5967;
     --text-main: #f5f5f7;
@@ -13,6 +13,7 @@
     --radius-pill: 999px;
     --transition-fast: 0.18s ease-out;
     --transition-med: 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+    --hero-bg-offset: 0px;
 }
 
 /* Reset base */
@@ -155,8 +156,6 @@ body {
     color: var(--text-muted);
 }
 
-/* HERO */
-
 .hero {
     display: grid;
     grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.1fr);
@@ -164,7 +163,37 @@ body {
     align-items: center;
     padding-top: 70px;
     padding-bottom: 70px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0; 
 }
+
+
+    /* immagine NivaZ + overlay */
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: -60px 0 0 0;
+        background-image: url("../images/nivaz-header.png");
+        background-size: cover;
+        background-position: top;
+        background-repeat: no-repeat;
+        transform: translateY(var(--hero-bg-offset));
+        opacity: 1.0;
+        filter: saturate(1.05) contrast(1.05);
+        z-index: -1; /* va bene così dentro la hero */
+    }
+
+    .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top, rgba(5, 10, 40, 0.85), rgba(5, 5, 10, 0.98));
+        mix-blend-mode: multiply;
+        z-index: -1; /* sopra l’immagine, sotto il contenuto */
+    }
+
+
 
 .hero-kicker {
     text-transform: uppercase;
@@ -172,7 +201,9 @@ body {
     letter-spacing: 0.14em;
     color: var(--accent-strong);
     margin-bottom: 12px;
+    text-shadow: 0 0 10px rgba(255, 48, 64, 0.4);
 }
+
 
 .hero-title {
     font-size: clamp(32px, 4vw, 40px);
@@ -207,11 +238,12 @@ body {
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
 }
 
-.btn.primary {
-    background: radial-gradient(circle at top left, var(--accent-strong), var(--accent));
-    color: #2b0208;
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
-}
+    .btn.primary {
+        background: radial-gradient(circle at top left, var(--accent-strong), var(--accent));
+        color: #2b0208;
+        /*box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);*/
+        box-shadow: 0 0 18px rgba(255, 48, 64, 0.45), 0 14px 30px rgba(0, 0, 0, 0.8);
+    }
 
 .btn.primary:hover {
     transform: translateY(-1px) scale(1.02);
