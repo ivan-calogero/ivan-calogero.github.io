@@ -675,9 +675,10 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
     justify-content: center;
     align-items: center;
     font-size: 13px;
-    color: var(--text-muted);
+    color: #ffffff;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     background: radial-gradient(circle at top, rgba(10, 10, 20, 0.95), rgba(3, 3, 6, 0.98));
+    z-index:20;
 }
 
 .footer-dot {
@@ -1067,6 +1068,7 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
         padding: 0 !important;
         background: #ffffff !important;
         height: auto !important;
+        font-size: 0.55em !important;
     }
 
     .page-bg-image,
