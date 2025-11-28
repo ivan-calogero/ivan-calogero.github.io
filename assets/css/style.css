@@ -1066,6 +1066,8 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
         background: #ffffff !important;
     }
 
+    .page-bg-image,
+    .page-gradient-bg,
     .site-header,
     .site-footer,
     .cv-print-bar,
