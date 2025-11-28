@@ -1071,6 +1071,11 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
         font-size: 0.55em !important;
     }
 
+    body {
+        min-height: 0 !important;
+        overflow: visible !important;
+    }
+
     .page-bg-image,
     .page-gradient-bg,
     .site-header,
@@ -1093,7 +1098,8 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
         margin: 0 auto !important;
         background: #ffffff !important;
         height: auto !important; /* nessun vincolo di altezza fissa */
-        page-break-after: avoid;
+        page-break-after: auto !important;
+        break-after: auto !important;
     }
 
     .cv-body {
