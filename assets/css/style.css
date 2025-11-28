@@ -968,9 +968,11 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
 }
 
 .cv-job-company {
-    font-size: 12px;
+    font-size: 10px;
     color: var(--cv-text-muted);
     margin-bottom: 4px;
+    text-align: right;
+    float:right;
 }
 
 .cv-list {
@@ -1001,8 +1003,8 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
 .cv-tag-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    font-size: 12px;
+    gap: 5px;
+    font-size: 11px;
 }
 
 .cv-tag {
@@ -1020,7 +1022,7 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
     }
 
 .cv-side-text {
-    font-size: 13px;
+    font-size: 11px;
     color: var(--cv-text-muted);
     margin: 0;
 }
@@ -1051,7 +1053,7 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
 
 @page {
     size: A4;
-    margin: 12mm 15mm; /* sopra/sotto 12mm, dx/sx 15mm */
+    margin: 5mm 8mm; /* sopra/sotto 12mm, dx/sx 15mm */
 }
 
 @media print {
