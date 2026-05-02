@@ -1,24 +1,26 @@
 const link = document.getElementById("phone-link");
 const phone = "+393276823951";
 
-link.addEventListener("click", function (e) {
-    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+if (link) {
+    link.addEventListener("click", function (e) {
+        const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
 
-    if (!isMobile) {
-        e.preventDefault();
+        if (!isMobile) {
+            e.preventDefault();
 
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(phone);
-        } else {
-            const tempInput = document.createElement("input");
-            tempInput.value = phone;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(phone);
+            } else {
+                const tempInput = document.createElement("input");
+                tempInput.value = phone;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+            }
         }
-    }
-});
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const yearSpan = document.getElementById("year");

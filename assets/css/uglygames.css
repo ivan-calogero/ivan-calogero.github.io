@@ -1,0 +1,445 @@
+.uglygames-page {
+    --bg-main: #f3ead7;
+    --bg-elevated: #17111b;
+    --bg-elevated-soft: #22172a;
+    --accent: #ec43a5;
+    --accent-soft: rgba(236, 67, 165, 0.18);
+    --accent-strong: #ff4db3;
+    --text-main: #fff8e9;
+    --text-muted: #d7cdbf;
+    --border-subtle: rgba(17, 13, 22, 0.14);
+    --ugly-ink: #15101a;
+    --ugly-cream: #fff5dc;
+    --ugly-zombie: #a8b85d;
+    --ugly-cyan: #24dfc1;
+    --ugly-violet: #8f5dff;
+    background:
+        radial-gradient(circle at 18% 12%, rgba(236, 67, 165, 0.18), transparent 32%),
+        radial-gradient(circle at 84% 18%, rgba(36, 223, 193, 0.15), transparent 28%),
+        linear-gradient(180deg, #fbf3df 0%, #eadfca 48%, #19111d 100%);
+    color: var(--ugly-ink);
+}
+
+.uglygames-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(21, 16, 26, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(21, 16, 26, 0.05) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 70%);
+    z-index: 0;
+}
+
+.uglygames-page .ugly-bg-grid {
+    top: 0;
+    height: 100vh;
+    background-image:
+        radial-gradient(circle at 12% 22%, rgba(236, 67, 165, 0.2), transparent 30%),
+        radial-gradient(circle at 82% 6%, rgba(36, 223, 193, 0.2), transparent 24%),
+        linear-gradient(135deg, rgba(255, 245, 220, 0.96), rgba(236, 225, 202, 0.84));
+    opacity: 1;
+    filter: none;
+    z-index: -2;
+}
+
+.uglygames-page .ugly-gradient-bg {
+    background:
+        radial-gradient(circle at 72% 28%, rgba(168, 184, 93, 0.22), transparent 35%),
+        radial-gradient(circle at 20% 70%, rgba(143, 93, 255, 0.16), transparent 32%);
+    mix-blend-mode: normal;
+    opacity: 0.9;
+    z-index: -1;
+}
+
+.uglygames-page .site-header {
+    background: linear-gradient(
+        to bottom,
+        rgba(21, 16, 26, 0.94),
+        rgba(21, 16, 26, 0.78),
+        rgba(21, 16, 26, 0)
+    );
+}
+
+.ugly-header-logo {
+    min-width: 0;
+}
+
+.ugly-nav-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: var(--ugly-cream);
+    border: 2px solid #0e0b12;
+    box-shadow: 4px 4px 0 #0e0b12;
+}
+
+.uglygames-page .logo-text,
+.uglygames-page .hero-kicker,
+.ugly-section-kicker,
+.uglygames-page .project-tag,
+.uglygames-page .contact-label {
+    font-family: 'Press Start 2P', system-ui, sans-serif;
+    letter-spacing: 0;
+}
+
+.uglygames-page .logo-text {
+    color: var(--accent-strong);
+    text-shadow: 2px 2px 0 #0e0b12;
+}
+
+.uglygames-page .site-nav a {
+    color: rgba(255, 248, 233, 0.78);
+}
+
+.uglygames-page .site-nav a:hover {
+    color: var(--ugly-cream);
+}
+
+.uglygames-page .site-nav a::after {
+    height: 3px;
+    border-radius: 0;
+    background: linear-gradient(90deg, var(--accent), var(--ugly-cyan));
+}
+
+.uglygames-page .menu-toggle {
+    background: rgba(21, 16, 26, 0.96);
+    border-color: rgba(255, 245, 220, 0.24);
+}
+
+.uglygames-page .section {
+    z-index: 1;
+}
+
+.ugly-hero {
+    min-height: 760px;
+    padding-top: 86px;
+    color: var(--ugly-ink);
+}
+
+.uglygames-page .hero-title {
+    font-family: 'Bangers', Impact, sans-serif;
+    font-size: clamp(70px, 11vw, 150px);
+    line-height: 0.9;
+    margin-bottom: 8px;
+    color: var(--accent);
+    text-shadow:
+        5px 5px 0 #0d0a11,
+        -3px 3px 0 var(--ugly-cyan),
+        2px -2px 0 var(--ugly-violet);
+}
+
+.uglygames-page .hero-kicker {
+    display: inline-block;
+    padding: 9px 12px;
+    background: var(--ugly-ink);
+    color: var(--ugly-cyan);
+    box-shadow: 5px 5px 0 var(--accent);
+    font-size: 10px;
+    text-shadow: none;
+}
+
+.ugly-tagline {
+    margin: 0 0 16px;
+    font-size: clamp(24px, 3vw, 40px);
+    font-weight: 800;
+    color: var(--ugly-ink);
+}
+
+.uglygames-page .hero-subtitle {
+    color: #3d3344;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.uglygames-page .btn {
+    border-radius: 8px;
+    border: 2px solid #0d0a11;
+    font-weight: 800;
+    box-shadow: 5px 5px 0 #0d0a11;
+}
+
+.uglygames-page .btn.primary {
+    background: var(--accent);
+    color: #100b15;
+}
+
+.uglygames-page .btn.ghost {
+    background: var(--ugly-cream);
+    color: #100b15;
+    border-color: #0d0a11;
+}
+
+.uglygames-page .btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 #0d0a11;
+}
+
+.uglygames-page .meta-pill {
+    border-radius: 6px;
+    border: 2px solid #0d0a11;
+    background: var(--ugly-cream);
+    color: #211728;
+    box-shadow: 3px 3px 0 #0d0a11;
+}
+
+.ugly-logo-stage {
+    min-height: 480px;
+}
+
+.ugly-logo-card {
+    position: relative;
+    z-index: 2;
+    width: min(470px, 100%);
+    padding: 18px;
+    border: 3px solid #0d0a11;
+    border-radius: 10px;
+    background: rgba(255, 245, 220, 0.84);
+    box-shadow:
+        12px 12px 0 #0d0a11,
+        0 28px 65px rgba(21, 16, 26, 0.28);
+}
+
+.ugly-logo-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.ugly-glitch-chip {
+    position: absolute;
+    width: 46px;
+    height: 13px;
+    background: var(--accent);
+    border: 2px solid #0d0a11;
+    box-shadow: 4px 4px 0 #0d0a11;
+    z-index: 3;
+    animation: uglyJitter 2.8s steps(2, end) infinite;
+}
+
+.ugly-glitch-chip.chip-a {
+    top: 18%;
+    left: 10%;
+    background: var(--ugly-cyan);
+}
+
+.ugly-glitch-chip.chip-b {
+    right: 5%;
+    top: 34%;
+}
+
+.ugly-glitch-chip.chip-c {
+    left: 18%;
+    bottom: 16%;
+    background: var(--ugly-violet);
+}
+
+@keyframes uglyJitter {
+    0%, 100% { transform: translate(0, 0); }
+    30% { transform: translate(-5px, 3px); }
+    62% { transform: translate(4px, -3px); }
+}
+
+.uglygames-page .hero-orbit-ring {
+    border-color: rgba(21, 16, 26, 0.32);
+    box-shadow: none;
+}
+
+.uglygames-page .hero-orbit-dot.dot-1 {
+    background: var(--accent);
+}
+
+.uglygames-page .hero-orbit-dot.dot-2 {
+    background: var(--ugly-zombie);
+}
+
+.uglygames-page .hero-orbit-dot.dot-3 {
+    background: var(--ugly-cyan);
+}
+
+.uglygames-page .section.glass {
+    background: rgba(21, 16, 26, 0.92);
+    color: var(--ugly-cream);
+}
+
+.uglygames-page .section-header h2 {
+    font-family: 'Bangers', Impact, sans-serif;
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 0.96;
+    margin: 0 0 14px;
+    color: inherit;
+}
+
+.uglygames-page .section:not(.glass) .section-header h2 {
+    color: var(--ugly-ink);
+}
+
+.uglygames-page .section-header p {
+    color: inherit;
+    opacity: 0.78;
+}
+
+.ugly-section-kicker {
+    display: inline-block;
+    margin: 0 0 16px;
+    padding: 8px 11px;
+    background: var(--accent);
+    color: #130d18;
+    border: 2px solid #0d0a11;
+    box-shadow: 4px 4px 0 #0d0a11;
+    font-size: 9px;
+    opacity: 1 !important;
+}
+
+.ugly-about-grid {
+    align-items: stretch;
+}
+
+.uglygames-page .about-text p {
+    color: inherit;
+    opacity: 0.78;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.ugly-callout {
+    background: var(--ugly-cream);
+    color: #1b1321;
+    border: 3px solid #0d0a11;
+    border-radius: 8px;
+    box-shadow: 8px 8px 0 var(--accent);
+}
+
+.ugly-callout h3 {
+    font-family: 'Press Start 2P', system-ui, sans-serif;
+    font-size: 13px;
+}
+
+.ugly-callout p {
+    margin: 0;
+    color: #372b3f;
+    line-height: 1.6;
+}
+
+.ugly-principles {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.uglygames-page .project-card,
+.uglygames-page .skills-column,
+.ugly-contact-panel {
+    background: #17111b;
+    border: 3px solid #0d0a11;
+    border-radius: 8px;
+    box-shadow: 8px 8px 0 #0d0a11;
+}
+
+.uglygames-page .project-card:hover {
+    border-color: #0d0a11;
+    background:
+        linear-gradient(135deg, rgba(236, 67, 165, 0.22), transparent 48%),
+        #17111b;
+    box-shadow: 6px 6px 0 #0d0a11;
+}
+
+.uglygames-page .project-title,
+.uglygames-page .skills-column h3 {
+    color: var(--ugly-cream);
+}
+
+.uglygames-page .project-description,
+.uglygames-page .skills-column p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.uglygames-page .project-tag {
+    color: var(--ugly-cyan);
+    font-size: 9px;
+    line-height: 1.6;
+}
+
+.uglygames-page .project-meta span {
+    border-radius: 5px;
+    background: rgba(255, 245, 220, 0.08);
+    color: var(--ugly-zombie);
+}
+
+.ugly-game-card:nth-child(2) .project-tag {
+    color: var(--accent-strong);
+}
+
+.ugly-game-card:nth-child(3) .project-tag {
+    color: var(--ugly-violet);
+}
+
+.uglygames-page .contact-panel p,
+.uglygames-page .contact-item span {
+    color: var(--text-muted);
+}
+
+.uglygames-page .contact-item a {
+    color: var(--accent-strong);
+}
+
+.uglygames-page .contact-details.glass {
+    background: rgba(255, 245, 220, 0.06);
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.ugly-footer {
+    background: #100b15;
+    color: var(--ugly-cream);
+}
+
+@media (max-width: 960px) {
+    .ugly-hero {
+        min-height: auto;
+    }
+
+    .ugly-logo-stage {
+        min-height: 420px;
+        order: 0;
+    }
+
+    .ugly-principles {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .uglygames-page .site-nav {
+        background: rgba(21, 16, 26, 0.96);
+    }
+
+    .uglygames-page .hero-title {
+        font-size: clamp(64px, 20vw, 94px);
+        text-shadow:
+            3px 3px 0 #0d0a11,
+            -2px 2px 0 var(--ugly-cyan);
+    }
+
+    .ugly-logo-stage {
+        min-height: 300px;
+    }
+
+    .ugly-logo-card {
+        width: min(360px, 92vw);
+        padding: 10px;
+        box-shadow: 7px 7px 0 #0d0a11;
+    }
+
+    .ugly-glitch-chip {
+        display: none;
+    }
+
+    .uglygames-page .section-header h2 {
+        font-size: clamp(36px, 13vw, 54px);
+    }
+}
