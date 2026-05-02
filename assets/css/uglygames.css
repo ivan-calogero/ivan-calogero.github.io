@@ -411,6 +411,11 @@
     .ugly-principles {
         grid-template-columns: minmax(0, 1fr);
     }
+
+    .uglygames-page .reveal {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 @media (max-width: 700px) {
