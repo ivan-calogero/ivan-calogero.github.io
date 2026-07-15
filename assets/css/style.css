@@ -820,13 +820,13 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
 .cv-banner {
     background: linear-gradient(135deg, var(--cv-blue), var(--cv-blue-soft));
     border-radius: 20px;
-    padding: 18px 22px;
+    padding: 14px 18px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
     color: #f8fafc;
-    margin-bottom: 22px;
+    margin-bottom: 16px;
 }
 
 .cv-heading-main {
@@ -919,7 +919,7 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
     text-transform: uppercase;
     letter-spacing: 0.14em;
     color: var(--cv-blue);
-    margin-bottom: 6px;
+    margin-bottom: 2px;
 }
 
 .cv-section-underline {
@@ -927,7 +927,7 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
     height: 3px;
     border-radius: 999px;
     background: var(--cv-red);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .cv-section {
@@ -980,10 +980,11 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
     margin: 0;
     padding-left: 18px;
     color: var(--cv-text-muted);
+    font-size: smaller;
 }
 
     .cv-list li {
-        margin-bottom: 3px;
+        margin-bottom: 2px;
     }
 
 /* Colonna destra: box tondeggianti */
@@ -1098,7 +1099,7 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
         border-radius: 0 !important;
         max-width: 100% !important;
         width: 100% !important;
-        padding: 0 !important;
+        padding: 24px 30px 24px;
         margin: 0 auto !important;
         background: #ffffff !important;
         height: auto !important; /* nessun vincolo di altezza fissa */
@@ -1129,7 +1130,7 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
 
 @media screen and (max-width: 960px) {
     .cv-page {
-        padding: 26px 20px 24px;
+        padding: 20px 16px 20px;
     }
 
     .cv-body {

@@ -1,912 +1,346 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Curriculum Vitae – Ivan Calogero</title>
-    <meta name="description"
-          content="Curriculum Vitae di Ivan Calogero, Senior Software Developer specializzato in C#, .NET, Blazor, Unity e VR.">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculum Vitae - Ivan Calogero</title>
+    <meta name="description" content="Curriculum Vitae di Ivan Calogero, Senior Software Developer specializzato in C#, .NET, Blazor, Unity e VR.">
+    <link rel="stylesheet" href="assets/css/style.css" />
     <style>
+        /* Palette CV (blu spento + rosso NivaZ) */
         :root {
-            --page-bg: #05070d;
-            --page-bg-soft: #111726;
-            --cv-blue: #1d3247;
-            --cv-blue-soft: #28445c;
-            --cv-blue-light: #f2f6fa;
-            --cv-text: #252a31;
-            --cv-muted: #5c6673;
-            --cv-border: #dfe6ed;
-            --cv-red: #ef3340;
-            --white: #ffffff;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            --cv-blue: #1b2a3a;
+            --cv-blue-soft: #23374a;
+            --cv-blue-light: #f4f7fb;
+            --cv-text-main: #22252b;
+            --cv-text-muted: #606673;
+            --cv-red: #ff3040;
         }
 
         body {
-            margin: 0;
-            min-height: 100vh;
-            color: var(--white);
-            font-family: Inter, "Segoe UI", Arial, sans-serif;
-            background:
-                radial-gradient(circle at 15% 0%, rgba(239, 51, 64, .18), transparent 33%),
-                radial-gradient(circle at 85% 18%, rgba(75, 108, 155, .20), transparent 38%),
-                linear-gradient(160deg, var(--page-bg-soft), var(--page-bg) 58%, #000);
+            background: radial-gradient(circle at top, #05070d 0, #020206 55%, #000 100%);
         }
 
-        a {
-            color: inherit;
-        }
 
-        /* Barra del sito */
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            padding: 12px 8vw;
-            background: rgba(5, 7, 13, .88);
-            border-bottom: 1px solid rgba(255, 255, 255, .07);
-            backdrop-filter: blur(16px);
-        }
-
-        .site-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: #ff5967;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: .08em;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .site-logo-avatar {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background:
-                url("https://ivan-calogero.github.io/assets/images/avatar.jpg")
-                center / cover no-repeat;
-            border: 2px solid rgba(255, 255, 255, .35);
-        }
-
-        .site-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .site-nav a {
-            color: #aeb7c6;
-            font-size: 13px;
-            text-decoration: none;
-        }
-
-        .site-nav a:hover,
-        .site-nav a[aria-current="page"] {
-            color: #ffffff;
-        }
-
-        /* Area CV */
-        .cv-wrapper {
-            display: flex;
-            justify-content: center;
-            padding: 68px 24px 54px;
-        }
-
-        .cv-page {
-            position: relative;
-            width: 100%;
-            max-width: 920px;
-            padding: 30px 36px 22px;
-            color: var(--cv-text);
-            background: var(--white);
-            border-radius: 24px;
-            box-shadow: 0 28px 80px rgba(0, 0, 0, .58);
-        }
-
-        .cv-print-bar {
-            position: absolute;
-            top: -42px;
-            right: 8px;
-        }
-
-        .cv-print-button {
-            padding: 8px 15px;
-            color: #ffffff;
-            font: inherit;
-            font-size: 12px;
-            cursor: pointer;
-            background: rgba(10, 13, 21, .94);
-            border: 1px solid rgba(255, 255, 255, .25);
-            border-radius: 999px;
-        }
-
-        .cv-print-button:hover {
-            border-color: var(--cv-red);
-        }
-
-        /* Testata */
-        .cv-banner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 22px;
-            padding: 18px 22px;
-            margin-bottom: 18px;
-            color: #f8fafc;
-            background: linear-gradient(135deg, var(--cv-blue), var(--cv-blue-soft));
-            border-radius: 20px;
-        }
-
-        .cv-heading-main {
-            min-width: 0;
-        }
-
-        .cv-name {
-            margin-bottom: 2px;
-            font-size: 26px;
-            font-weight: 750;
-            letter-spacing: .02em;
-        }
-
-        .cv-role {
-            font-size: 14px;
-            font-weight: 500;
-            opacity: .95;
-        }
-
-        .cv-contact-strip {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px 15px;
-            margin-top: 10px;
-            font-size: 11px;
-        }
-
-        .cv-contact-item {
-            display: inline-flex;
-            align-items: baseline;
-            gap: 5px;
-            white-space: nowrap;
-        }
-
-        .cv-contact-label {
-            font-weight: 700;
-        }
-
-        .cv-contact-value a {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        .cv-contact-value a:hover {
-            text-decoration: underline;
-        }
-
-        .cv-avatar {
-            flex: 0 0 auto;
-            width: 88px;
-            height: 88px;
-            border-radius: 50%;
-            background:
-                url("https://ivan-calogero.github.io/assets/images/avatar.jpg")
-                center / cover no-repeat;
-            border: 4px solid rgba(255, 255, 255, .32);
-            box-shadow: 0 12px 26px rgba(0, 0, 0, .38);
-        }
-
-        /* Colonne */
-        .cv-body {
-            display: grid;
-            grid-template-columns: minmax(0, 1.62fr) minmax(245px, 1fr);
-            gap: 20px;
-        }
-
-        .cv-section {
-            margin-bottom: 13px;
-        }
-
-        .cv-section-title {
-            margin-bottom: 5px;
-            color: var(--cv-blue);
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-        }
-
-        .cv-section-underline {
-            width: 48px;
-            height: 3px;
-            margin-bottom: 8px;
-            background: var(--cv-red);
-            border-radius: 999px;
-        }
-
-        .cv-paragraph {
-            margin: 0;
-            color: var(--cv-muted);
-            font-size: 11.7px;
-            line-height: 1.47;
-        }
-
-        /* Esperienze */
-        .cv-job {
-            padding: 9px 11px 8px;
-            margin-bottom: 9px;
-            background: var(--cv-blue-light);
-            border: 1px solid rgba(29, 50, 71, .035);
-            border-radius: 13px;
-        }
-
-        .cv-job-header {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 2px;
-        }
-
-        .cv-job-title {
-            color: #27333f;
-            font-size: 11.6px;
-            font-weight: 750;
-        }
-
-        .cv-job-meta {
-            flex: 0 0 auto;
-            color: var(--cv-muted);
-            font-size: 9.8px;
-            text-align: right;
-            white-space: nowrap;
-        }
-
+        /* Società immediatamente sotto il titolo dell'esperienza */
         .cv-job-company {
-            margin-bottom: 4px;
-            color: var(--cv-muted);
-            font-size: 9.4px;
-            font-weight: 600;
-        }
-
-        .cv-list {
-            padding-left: 16px;
-            margin: 0;
-            color: var(--cv-muted);
-            font-size: 10.2px;
-            line-height: 1.35;
-        }
-
-        .cv-list li {
-            margin-bottom: 2px;
-        }
-
-        .cv-list li:last-child {
-            margin-bottom: 0;
-        }
-
-        .cv-other-list {
-            padding: 8px 10px;
-            background: var(--cv-blue-light);
-            border-radius: 11px;
-        }
-
-        .cv-other-row {
-            padding-bottom: 6px;
-            margin-bottom: 6px;
-            border-bottom: 1px solid rgba(29, 50, 71, .13);
-        }
-
-        .cv-other-row:last-child {
-            padding-bottom: 0;
-            margin-bottom: 0;
-            border-bottom: 0;
-        }
-
-        .cv-other-row-header {
+            float: none !important;
+            clear: both;
             display: flex;
             align-items: baseline;
-            justify-content: space-between;
-            gap: 8px;
-            margin-bottom: 2px;
-        }
-
-        .cv-other-row strong {
-            color: #27333f;
-            font-size: 10.5px;
-        }
-
-        .cv-other-row span {
-            flex: 0 0 auto;
-            color: var(--cv-muted);
-            font-size: 9.2px;
-            text-align: right;
-            white-space: nowrap;
-        }
-
-        .cv-other-row p {
-            margin: 0;
-            color: var(--cv-muted);
-            font-size: 9.7px;
-            line-height: 1.32;
-        }
-
-        /* Colonna destra */
-        .cv-side-card {
-            padding: 11px 12px 10px;
-            margin-bottom: 10px;
-            background: var(--cv-blue-light);
-            border-radius: 15px;
-        }
-
-        .cv-side-card-title {
-            margin-bottom: 7px;
-            color: var(--cv-blue);
-            font-size: 11.5px;
-            font-weight: 800;
-        }
-
-        .cv-tag-list {
-            display: flex;
             flex-wrap: wrap;
-            gap: 4px;
+            gap: 3px 6px;
+            margin: -1px 0 5px;
+            color: var(--cv-text-muted);
+            font-size: 10px;
+            line-height: 1.25;
+            text-align: left !important;
         }
 
-        .cv-tag {
-            padding: 3px 7px;
-            color: var(--cv-muted);
-            font-size: 9.1px;
-            line-height: 1.1;
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, .065);
-            border-radius: 999px;
-        }
-
-        .cv-tag.strong {
-            color: #ffffff;
-            background: var(--cv-blue);
-            border-color: transparent;
-        }
-
-        .cv-project {
-            padding-bottom: 6px;
-            margin-bottom: 6px;
-            border-bottom: 1px solid rgba(29, 50, 71, .16);
-        }
-
-        .cv-project:last-child {
-            padding-bottom: 0;
-            margin-bottom: 0;
-            border-bottom: 0;
-        }
-
-        .cv-project-name {
-            margin-bottom: 2px;
-            color: #2d3b48;
-            font-size: 10.2px;
-            font-weight: 750;
-        }
-
-        .cv-project-description,
-        .cv-side-text {
-            margin: 0;
-            color: var(--cv-muted);
-            font-size: 9.4px;
-            line-height: 1.33;
-        }
-
-        .cv-education-item {
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            border-bottom: 1px solid rgba(29, 50, 71, .16);
-        }
-
-        .cv-education-item:last-child {
-            padding-bottom: 0;
-            margin-bottom: 0;
-            border-bottom: 0;
-        }
-
-        .cv-education-title {
-            color: #2d3b48;
-            font-size: 9.7px;
+        .cv-company-name {
+            color: var(--cv-blue);
             font-weight: 700;
         }
 
-        .cv-education-meta {
-            color: var(--cv-muted);
-            font-size: 8.9px;
-            line-height: 1.3;
+        .cv-company-context {
+            color: var(--cv-text-muted);
+            font-weight: 400;
         }
 
-        .cv-privacy {
-            padding: 7px 10px;
-            margin-top: 2px;
-            color: #707986;
-            font-size: 7.7px;
-            line-height: 1.28;
-            background: var(--cv-blue-light);
-            border-radius: 10px;
-        }
-
-        .site-footer {
-            display: flex;
-            justify-content: center;
-            padding: 20px;
-            color: #8791a2;
-            font-size: 12px;
-        }
-
-        /* Mobile */
-        @media (max-width: 760px) {
-            .site-header {
-                align-items: flex-start;
-                flex-direction: column;
-                padding-inline: 20px;
-            }
-
-            .site-nav {
-                gap: 12px;
-            }
-
-            .cv-wrapper {
-                padding: 58px 10px 34px;
-            }
-
-            .cv-page {
-                padding: 18px 14px;
-                border-radius: 15px;
-            }
-
-            .cv-print-bar {
-                top: -40px;
-                right: 4px;
-            }
-
-            .cv-banner {
-                align-items: flex-start;
-                padding: 16px;
-            }
-
-            .cv-avatar {
-                width: 70px;
-                height: 70px;
-            }
-
-            .cv-contact-strip {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 5px;
-            }
-
-            .cv-body {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Stampa */
-        @page {
-            size: A4;
-            margin: 7mm;
-        }
-
-        @media print {
-            * {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            html,
-            body {
-                width: 100%;
-                min-height: 0;
-                margin: 0 !important;
-                padding: 0 !important;
-                background: #ffffff !important;
-            }
-
-            .site-header,
-            .site-footer,
-            .cv-print-bar {
-                display: none !important;
-            }
-
-            .cv-wrapper {
-                display: block;
-                padding: 0 !important;
-            }
-
-            .cv-page {
-                width: 100% !important;
-                max-width: none !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                border-radius: 0 !important;
-                box-shadow: none !important;
-            }
-
-            .cv-banner {
-                margin-bottom: 14px;
-            }
-
-            .cv-body {
-                grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr) !important;
-                gap: 18px !important;
-            }
-
-            .cv-job,
-            .cv-side-card,
-            .cv-other-list,
-            .cv-privacy {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-        }
     </style>
 </head>
-
 <body>
-<header class="site-header">
-    <a class="site-logo" href="index.html">
-        <span class="site-logo-avatar" aria-hidden="true"></span>
-        <span>Ivan Calogero</span>
-    </a>
+    <div class="page-bg-image"></div>
+    <div class="page-gradient-bg"></div>
 
-    <nav class="site-nav" aria-label="Navigazione principale">
-        <a href="index.html#about">Chi sono</a>
-        <a href="index.html#projects">Progetti</a>
-        <a href="index.html#skills">Competenze</a>
-        <a href="index.html#contact">Contatti</a>
-        <a href="cv.html" aria-current="page">Curriculum</a>
-    </nav>
-</header>
-
-<main class="cv-wrapper">
-    <article class="cv-page">
-        <div class="cv-print-bar">
-            <button class="cv-print-button" type="button" onclick="window.print()">
-                Scarica il CV in PDF
-            </button>
+    <header class="site-header">
+        <div class="logo">
+            <a href="index.html">
+                <div class="cv-avatar-circle" style="max-height: 48px !important; max-width: 48px !important; min-height: 48px !important; min-width: 48px !important; background-image: url('./assets/images/avatar.jpg'); background-position: center; background-size: 64px; corner-bottom-left-shape: square; ">
+                </div>
+            </a>
+            <span class="logo-text">  Ivan&nbsp;Calogero</span>
         </div>
+        <button class="menu-toggle" aria-label="Apri il menu di navigazione">
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+        </button>
+        <nav class="site-nav">
+            <a href="#about">Chi sono</a>
+            <a href="#projects">Progetti</a>
+            <a href="#skills">Competenze</a>
+            <a href="#contact">Contatti</a>
+            <a href="./cv.html">Curriculum</a>
+        </nav>
+    </header>
 
-        <header class="cv-banner">
-            <div class="cv-heading-main">
-                <div class="cv-name">Ivan Calogero</div>
-                <div class="cv-role">
-                    Senior Software Developer · C# / .NET · Blazor · Unity
+    <div class="cv-wrapper">
+        <div class="cv-page">
+            <div class="cv-print-bar">
+                <button class="cv-print-button" onclick="window.print()">
+                    Scarica il CV in PDF
+                </button>
+            </div>
+
+            <div class="cv-banner">
+                <div class="cv-heading-main">
+                    <!--<div class="cv-badge">Curriculum Vitae</div>-->
+                    <div class="cv-name">Ivan Calogero</div>
+                    <div class="cv-role">Senior Software Developer · C# .NET · Blazor · Unity</div>
+
+                    <div class="cv-contact-strip">
+                        <div class="cv-contact-item">
+                            <span class="cv-contact-label">Email</span>
+                            <span class="cv-contact-value">
+                                <a href="mailto:i.calogero.dev@gmail.com">i.calogero.dev@gmail.com</a>
+                            </span>
+                        </div>
+                        <div class="cv-contact-item">
+                            <span class="cv-contact-label">Mobile</span>
+                            <span class="cv-contact-value">
+                                <a href="tel:+393276823951" id="phone-link">(+39) 327 68 23 951</a>
+                            </span>
+                        </div>
+                        <div class="cv-contact-item">
+                            <span class="cv-contact-label">Web</span>
+                            <span class="cv-contact-value">
+                                <a href="https://ivan-calogero.github.io/">ivan-calogero.github.io</a>
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="cv-contact-strip">
-                    <div class="cv-contact-item">
-                        <span class="cv-contact-label">Email</span>
-                        <span class="cv-contact-value">
-                            <a href="mailto:i.calogero.dev@gmail.com">
-                                i.calogero.dev@gmail.com
-                            </a>
-                        </span>
-                    </div>
-
-                    <div class="cv-contact-item">
-                        <span class="cv-contact-label">Mobile</span>
-                        <span class="cv-contact-value">
-                            <a href="tel:+393276823951">(+39) 327 68 23 951</a>
-                        </span>
-                    </div>
-
-                    <div class="cv-contact-item">
-                        <span class="cv-contact-label">Web</span>
-                        <span class="cv-contact-value">
-                            <a href="https://ivan-calogero.github.io/">
-                                ivan-calogero.github.io
-                            </a>
-                        </span>
-                    </div>
-
-                    <div class="cv-contact-item">
-                        <span class="cv-contact-label">LinkedIn</span>
-                        <span class="cv-contact-value">
-                            <a href="https://www.linkedin.com/in/ivan-calogero">
-                                /in/ivan-calogero
-                            </a>
-                        </span>
+                <div class="cv-avatar-wrapper">
+                    <div class="cv-avatar-circle" style="background-image: url('./assets/images/avatar.jpg'); background-position: center; background-size: 92px; corner-bottom-left-shape: square;">
                     </div>
                 </div>
             </div>
 
-            <div class="cv-avatar" role="img" aria-label="Foto di Ivan Calogero"></div>
-        </header>
 
-        <div class="cv-body">
-            <!-- COLONNA PRINCIPALE -->
-            <div>
-                <section class="cv-section">
-                    <div class="cv-section-title">Profilo</div>
-                    <div class="cv-section-underline"></div>
 
-                    <p class="cv-paragraph">
-                        Sviluppatore software senior con consolidata esperienza nella progettazione
-                        e realizzazione di applicazioni in C# e .NET. Specializzato in soluzioni web
-                        e gestionali basate su ASP.NET Core, Blazor, API REST, SQL Server e PostgreSQL.
-                        Seguo l’intero ciclo di sviluppo, dall’analisi dei requisiti al rilascio e alla
-                        manutenzione. Parallelamente sviluppo videogiochi ed esperienze VR con Unity
-                        per Android, PC e visori.
-                    </p>
-                </section>
 
-                <section class="cv-section">
-                    <div class="cv-section-title">Esperienza professionale</div>
-                    <div class="cv-section-underline"></div>
+            <div class="cv-body">
+                <div>
+                    <section class="cv-section">
+                        <div class="cv-section-title">Profilo</div>
+                        <div class="cv-section-underline"></div>
+                        <p class="cv-paragraph" style="font-size: smaller;">
+                            Sviluppatore software senior con consolidata esperienza nella progettazione e realizzazione
+                            di applicazioni in C# e .NET. Specializzato in soluzioni web e gestionali basate su
+                            ASP.NET Core, Blazor, API REST, SQL Server e PostgreSQL. Seguo l'intero ciclo di sviluppo,
+                            dall'analisi dei requisiti al rilascio e alla manutenzione. Parallelamente sviluppo
+                            videogiochi ed esperienze VR con Unity per Android, PC e visori.
+                        </p>
+                    </section>
 
-                    <article class="cv-job">
-                        <div class="cv-job-header">
-                            <div class="cv-job-title">
-                                Senior .NET / Full Stack Developer
+                    <section class="cv-section">
+                        <div class="cv-section-title">Esperienza</div>
+                        <div class="cv-section-underline"></div>
+
+                        <div class="cv-job">
+                            <div class="cv-job-header">
+                                <div class="cv-job-title">Senior .NET / Full Stack Developer</div>
+                                <div class="cv-job-meta">[2025 - Presente]</div>
                             </div>
-                            <div class="cv-job-meta">2025 – Presente</div>
-                        </div>
-
-                        <div class="cv-job-company">
-                            I&amp;M Consulting · Progetto presso Accenture · Remoto
-                        </div>
-
-                        <ul class="cv-list">
-                            <li>
-                                Sviluppo full stack di applicazioni web per un programma
-                                ministeriale articolato in più progetti.
-                            </li>
-                            <li>
-                                Realizzazione e manutenzione di componenti backend in C#/.NET,
-                                interfacce Blazor e integrazioni tramite API REST.
-                            </li>
-                            <li>
-                                Collaborazione con team tecnici e funzionali distribuiti
-                                nell’analisi e nell’implementazione delle funzionalità.
-                            </li>
-                        </ul>
-                    </article>
-
-                    <article class="cv-job">
-                        <div class="cv-job-header">
-                            <div class="cv-job-title">
-                                C#/.NET Full Stack Developer
+                            <div class="cv-job-company">presso 
+                                <span class="cv-company-name">I&amp;M Consulting</span>
+                                <span class="cv-company-context">· Progetto Accenture -> Giustizia · Remoto</span>
                             </div>
-                            <div class="cv-job-meta">2017 – 2025</div>
+                            <ul class="cv-list">
+                                <li>
+                                    Sviluppo full stack di un software gestionale web multiprogetto
+                                    per il Ministero della Giustizia.
+                                </li>
+                                <li>
+                                    Realizzazione e manutenzione di componenti backend in C#/.NET,
+                                    interfacce Blazor e integrazioni tramite API REST.
+                                </li>
+                                <li>
+                                    Collaborazione con team tecnici e funzionali distribuiti,
+                                    dall'analisi dei requisiti all'implementazione delle funzionalità.
+                                </li>
+                            </ul>
                         </div>
 
-                        <div class="cv-job-company">
-                            Business &amp; Knowledge · Roma / Remoto
-                        </div>
-
-                        <ul class="cv-list">
-                            <li>
-                                Progettazione e sviluppo di applicazioni gestionali, servizi web
-                                e intranet per enti della Pubblica Amministrazione.
-                            </li>
-                            <li>
-                                Sviluppo di backend C#/.NET, applicazioni web e desktop,
-                                API REST e integrazioni con sistemi esterni.
-                            </li>
-                            <li>
-                                Gestione dati con SQL Server e PostgreSQL, Entity Framework Core
-                                e Dapper.
-                            </li>
-                            <li>
-                                Analisi dei requisiti e digitalizzazione di processi operativi,
-                                flussi documentali e comunicazioni massive.
-                            </li>
-                            <li>
-                                Sviluppo di soluzioni per PDF, OCR, automazione documentale,
-                                trasmissione protetta dei dati e integrazione di servizi AI.
-                            </li>
-                        </ul>
-                    </article>
-
-                    <article class="cv-job">
-                        <div class="cv-job-header">
-                            <div class="cv-job-title">
-                                Independent Unity Game Developer
+                        <div class="cv-job">
+                            <div class="cv-job-header">
+                                <div class="cv-job-title">Sviluppatore C#/.NET / Full Stack</div>
+                                <div class="cv-job-meta">[2017 - 2025]</div>
                             </div>
-                            <div class="cv-job-meta">2019 – Presente</div>
-                        </div>
-
-                        <div class="cv-job-company">
-                            Attività indipendente e progetti personali · Remoto
-                        </div>
-
-                        <ul class="cv-list">
-                            <li>
-                                Sviluppo di videogiochi per Android e PC e applicazioni VR
-                                per Meta Quest e SteamVR.
-                            </li>
-                            <li>
-                                Implementazione di gameplay, IA avversaria, UI, missioni,
-                                salvataggi e classifiche.
-                            </li>
-                            <li>
-                                Ottimizzazione delle prestazioni, configurazione URP
-                                e gestione di build multipiattaforma.
-                            </li>
-                            <li>
-                                Prototipazione e sviluppo di progetti come Formula 2099,
-                                Nonna Drift, HoverNivaZ e Astragheddon.
-                            </li>
-                        </ul>
-                    </article>
-                </section>
-
-                <section class="cv-section">
-                    <div class="cv-section-title">Altre esperienze</div>
-                    <div class="cv-section-underline"></div>
-
-                    <div class="cv-other-list">
-                        <div class="cv-other-row">
-                            <div class="cv-other-row-header">
-                                <strong>Unity WebGL Developer</strong>
-                                <span>Startup / Holding · 2019–2021</span>
+                            <div class="cv-job-company">presso 
+                                <span class="cv-company-name">Business &amp; Knowledge</span>
+                                <span class="cv-company-context">· Roma / Remoto</span>
                             </div>
-                            <p>
-                                Soluzione Unity WebGL integrata con servizi web, API REST
-                                e sistemi per la gestione della ristorazione.
-                            </p>
+                            <ul class="cv-list">
+                                <li>
+                                    Progettazione e sviluppo di applicazioni gestionali, servizi web e intranet
+                                    per Enti della Pubblica Amministrazione.
+                                </li>
+                                <li>
+                                    Sviluppo backend in C#/.NET, applicazioni web e desktop,
+                                    API REST e integrazioni con sistemi esterni.
+                                </li>
+                                <li>
+                                    Gestione dati tramite SQL Server e PostgreSQL con Entity Framework.
+                                </li>
+                                <li>
+                                    Analisi dei requisiti e digitalizzazione di processi operativi,
+                                    flussi documentali e comunicazioni massive.
+                                </li>
+                                <li>
+                                    Sviluppo di soluzioni per PDF, OCR, automazione documentale,
+                                    reti protette e integrazione di servizi AI.
+                                </li>
+                            </ul>
                         </div>
 
-                        <div class="cv-other-row">
-                            <div class="cv-other-row-header">
-                                <strong>Tecnico informatico freelance</strong>
-                                <span>Roma · 2010–2019</span>
+                        <div class="cv-job">
+                            <div class="cv-job-header">
+                                <div class="cv-job-title">Independent Unity Game Developer</div>
+                                <div class="cv-job-meta">[2019 - Presente]</div>
                             </div>
-                            <p>
-                                Assistenza informatica, recupero dati e gestione di siti web.
-                            </p>
+                            <div class="cv-job-company">
+                                <span class="cv-company-name">Attività indipendente / Freelance</span>
+                                <span class="cv-company-context">· Remoto</span>
+                            </div>
+                            <ul class="cv-list">
+                                <li>Sviluppo di videogiochi per Android e PC e applicazioni VR per Meta Quest e SteamVR.</li>
+                                <li>Implementazione di gameplay, IA avversaria, UI, missioni, salvataggi e classifiche.</li>
+                                <li>Ottimizzazione delle prestazioni, configurazione URP e build multipiattaforma.</li>
+                                <li>Progetti: TicTacToe per AS Roma, Astragheddon VR, Formula 2099, Nonna Drift.</li>
+                            </ul>
+                        </div>
+
+                        <div class="cv-job">
+                            <div class="cv-job-header">
+                                <div class="cv-job-title">Unity WebGL Developer</div>
+                                <div class="cv-job-meta">[2019 - 2021]</div>
+                            </div>
+                            <div class="cv-job-company">presso 
+                                <span class="cv-company-name">Startup / Holding</span>
+                                <span class="cv-company-context">· Collaborazione progettuale · Roma</span>
+                            </div>
+                            <ul class="cv-list">
+                                <li>Sviluppo di una soluzione avanzata in Unity WebGL.</li>
+                                <li>Integrazione con servizi web, API REST e sistemi per la gestione della ristorazione.</li>
+                            </ul>
+                        </div>
+
+                        <div class="cv-job">
+                            <div class="cv-job-header">
+                                <div class="cv-job-title">Tecnico informatico</div>
+                                <div class="cv-job-meta">[2010 - 2019]</div>
+                            </div>
+                            <div class="cv-job-company">
+                                <span class="cv-company-name">Freelance</span>
+                                <span class="cv-company-context">· Roma</span>
+                            </div>
+                            <ul class="cv-list">
+                                <li>Assistenza informatica, recupero dati e gestione di siti web.</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+
+                <div>
+                    <div class="cv-side-card">
+                        <div class="cv-side-card-title">Competenze tecniche</div>
+                        <div class="cv-tag-list">
+                            <span class="cv-tag strong">C#</span>
+                            <span class="cv-tag">.NET / ASP.NET Core</span>
+                            <span class="cv-tag">Blazor</span>
+                            <span class="cv-tag">REST API</span>
+                            <span class="cv-tag">SQL Server / PostgreSQL</span>
+                            <span class="cv-tag">Entity Framework</span>
+                            <span class="cv-tag">Git / GitHub</span>
+                            <span class="cv-tag">Docker</span>
+                            <span class="cv-tag">PDF / OCR</span>
+                            <span class="cv-tag">AI</span>
+                            <span class="cv-tag strong">Unity</span>
+                            <span class="cv-tag">URP</span>
+                            <span class="cv-tag">Android</span>
+                            <span class="cv-tag">VR / OpenXR</span>
+                            <span class="cv-tag">Windows / Linux</span>
                         </div>
                     </div>
-                </section>
+
+                    <div class="cv-side-card">
+                        <div class="cv-side-card-title">Progetti selezionati</div>
+                        <p class="cv-side-text">
+                            <strong>SEDD</strong><br />
+                            Suite per conversione, elaborazione, OCR e automazione di documenti PDF.
+                        </p>
+                        <hr />
+                        <p class="cv-side-text">
+                            <strong>GeCo</strong><br />
+                            Piattaforma per comunicazioni massive, destinatari dinamici, allegati,
+                            ruoli e processi di approvazione.
+                        </p>
+                        <hr />
+                        <p class="cv-side-text">
+                            <strong>Unity / Game &amp; VR</strong><br />
+                            Videogiochi e applicazioni immersive con sistemi di gara, IA, missioni,
+                            UI, classifiche e pubblicazione Android.
+                        </p>
+                    </div>
+
+                    <div class="cv-side-card">
+                        <div class="cv-side-card-title">Formazione</div>
+                        <p class="cv-side-text">
+                            <strong>CUDA Programming e HPC Programming</strong> - [2025]<br />
+                            Corsi specialistici online in ambito High Performance Computing.
+                        </p>
+                        <hr />
+                        <p class="cv-side-text">
+                            <strong>Perito forense informatico · Istituto Volta</strong> - [2017]<br />
+                            Data recovery Linux e catena di custodia.
+                        </p>
+                        <hr />
+                        <p class="cv-side-text">
+                            <strong>Diploma Elettronica e Telecomunicazioni</strong> - [Cardano, 2010]
+                        </p>
+                        <hr />
+                        <p class="cv-side-text">
+                            <strong>Altra formazione:</strong> AI Prompt Engineering,
+                            GDPR e sicurezza aziendale, IC3 e PEKIT.
+                        </p>
+                    </div>
+
+                    <div class="cv-side-card">
+                        <div class="cv-side-card-title">Lingue</div>
+                        <p class="cv-side-text">
+                            Italiano (madrelingua)<br />
+                            Inglese tecnico e professionale
+                        </p>
+                    </div>
+
+                    <div class="cv-side-card">
+                        <div class="cv-side-card-title">Approccio professionale</div>
+                        <div class="cv-tag-list">
+                            <span class="cv-tag">Analisi requisiti</span>
+                            <span class="cv-tag">Problem solving</span>
+                            <span class="cv-tag">Autonomia</span>
+                            <span class="cv-tag">Lavoro in team</span>
+                            <span class="cv-tag">Mentoring</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <!-- COLONNA LATERALE -->
-            <aside>
-                <section class="cv-side-card">
-                    <div class="cv-side-card-title">Competenze tecniche</div>
-
-                    <div class="cv-tag-list">
-                        <span class="cv-tag strong">C#</span>
-                        <span class="cv-tag strong">.NET</span>
-                        <span class="cv-tag">ASP.NET Core</span>
-                        <span class="cv-tag">Blazor</span>
-                        <span class="cv-tag">REST API</span>
-                        <span class="cv-tag">PostgreSQL</span>
-                        <span class="cv-tag">SQL Server</span>
-                        <span class="cv-tag">EF Core</span>
-                        <span class="cv-tag">Dapper</span>
-                        <span class="cv-tag">Git / GitHub</span>
-                        <span class="cv-tag">Docker</span>
-                        <span class="cv-tag strong">Unity</span>
-                        <span class="cv-tag">URP</span>
-                        <span class="cv-tag">Android</span>
-                        <span class="cv-tag">VR / OpenXR</span>
-                        <span class="cv-tag">PDF / OCR</span>
-                        <span class="cv-tag">AI Integration</span>
-                        <span class="cv-tag">Windows / Linux</span>
-                    </div>
-                </section>
-
-                <section class="cv-side-card">
-                    <div class="cv-side-card-title">Progetti selezionati</div>
-
-                    <div class="cv-project">
-                        <div class="cv-project-name">SEDD · Document Automation</div>
-                        <p class="cv-project-description">
-                            Suite per conversione, elaborazione, OCR, firma e automazione
-                            di documenti PDF.
-                        </p>
-                    </div>
-
-                    <div class="cv-project">
-                        <div class="cv-project-name">GeCo · Massive Communications</div>
-                        <p class="cv-project-description">
-                            Piattaforma per comunicazioni massive, destinatari dinamici,
-                            allegati, ruoli e processi di approvazione.
-                        </p>
-                    </div>
-
-                    <div class="cv-project">
-                        <div class="cv-project-name">Unity, Game &amp; VR Development</div>
-                        <p class="cv-project-description">
-                            Videogiochi e applicazioni immersive con sistemi di gara,
-                            IA, missioni, UI, classifiche e pubblicazione Android.
-                        </p>
-                    </div>
-                </section>
-
-                <section class="cv-side-card">
-                    <div class="cv-side-card-title">Formazione</div>
-
-                    <div class="cv-education-item">
-                        <div class="cv-education-title">
-                            CUDA Programming e HPC Programming
-                        </div>
-                        <div class="cv-education-meta">
-                            Corsi specialistici online · 2025
-                        </div>
-                    </div>
-
-                    <div class="cv-education-item">
-                        <div class="cv-education-title">
-                            Perito forense informatico
-                        </div>
-                        <div class="cv-education-meta">
-                            Istituto Volta · Data recovery Linux e catena di custodia · 2017
-                        </div>
-                    </div>
-
-                    <div class="cv-education-item">
-                        <div class="cv-education-title">
-                            Diploma in Elettronica e Telecomunicazioni
-                        </div>
-                        <div class="cv-education-meta">
-                            Istituto Cardano · 2010
-                        </div>
-                    </div>
-
-                    <div class="cv-education-item">
-                        <div class="cv-education-title">
-                            Altra formazione
-                        </div>
-                        <div class="cv-education-meta">
-                            AI Prompt Engineering, GDPR e sicurezza aziendale,
-                            IC3 e PEKIT.
-                        </div>
-                    </div>
-                </section>
-
-                <section class="cv-side-card">
-                    <div class="cv-side-card-title">Lingue</div>
-                    <p class="cv-side-text">
-                        <strong>Italiano:</strong> madrelingua<br>
-                        <strong>Inglese:</strong> competenza tecnica e professionale
-                    </p>
-                </section>
-
-                <section class="cv-side-card">
-                    <div class="cv-side-card-title">Approccio professionale</div>
-
-                    <div class="cv-tag-list">
-                        <span class="cv-tag">Analisi dei requisiti</span>
-                        <span class="cv-tag">Autonomia</span>
-                        <span class="cv-tag">Problem solving</span>
-                        <span class="cv-tag">Mentoring</span>
-                        <span class="cv-tag">Team distribuiti</span>
-                    </div>
-                </section>
-            </aside>
+            <div class="cv-job" style="font-size: xx-small !important">
+                Autorizzo il trattamento dei dati personali ai sensi del Regolamento UE 2016/679
+                e della normativa vigente, ai fini di ricerca e selezione del personale.
+            </div>
+            </div>
         </div>
 
-        <footer class="cv-privacy">
-            Autorizzo il trattamento dei dati personali ai sensi del Regolamento
-            UE 2016/679 e della normativa vigente, ai fini di ricerca e selezione
-            del personale.
-        </footer>
-    </article>
-</main>
 
-<footer class="site-footer">
-    © <span id="year"></span>&nbsp; Ivan Calogero
-</footer>
 
-<script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+    <footer class="site-footer">
+        <span>© <span id="year"></span> Ivan Calogero (NivaZ)</span>
+        <span class="footer-dot">•</span>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
