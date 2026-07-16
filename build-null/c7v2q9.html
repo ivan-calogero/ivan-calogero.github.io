@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>BUILD//NULL — Client Archive</title>
+    <link rel="stylesheet" href="../assets/css/build-null.css">
+</head>
+<body class="null-page" data-null-stage="script" data-progress="5" data-progress-total="12">
+    <main class="null-shell">
+        <div class="null-topbar">
+            <a href="index.html">← Riavvia archivio</a>
+            <div class="null-progress" aria-label="Progresso: nodo 4 di 10">
+                <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <section class="null-terminal">
+            <div class="null-windowbar">
+                <i></i><i></i><i></i>
+                <span class="null-window-title">archive://node-04/client-auth</span>
+            </div>
+            <div class="null-content">
+                <p class="null-kicker">Frammento 04 — Autenticazione client</p>
+                <h1 class="null-title small">The client knows</h1>
+                <p class="null-copy">L’ultimo controllo viene eseguito interamente nel browser. Se il client può verificare le credenziali, allora deve conoscere sia l’operatore sia la passphrase.</p>
+                <div class="null-memory">Capire un sistema significa anche sapere dove può rompersi. La curiosità tecnica è diventata prima un mestiere, poi un modo di progettare software più solido.</div>
+
+                <form class="null-form" data-archive-form autocomplete="off">
+                    <div class="null-field">
+                        <label for="operator">Operatore archivio</label>
+                        <input id="operator" name="operator" spellcheck="false">
+                    </div>
+                    <div class="null-field">
+                        <label for="passphrase">Passphrase</label>
+                        <input id="passphrase" name="passphrase" type="password">
+                    </div>
+                    <button class="null-button" type="submit">Compila build</button>
+                    <p class="null-status" data-status aria-live="polite"></p>
+                </form>
+
+                <div class="null-hints">
+                    <button class="null-button secondary" type="button" data-hint-button>Richiedi suggerimento</button>
+                    <div class="null-hint-output" data-hint-output aria-live="polite"></div>
+                </div>
+
+                <div class="null-complete" data-complete>
+                    <p class="null-kicker">Access layer restored</p>
+                    <h2>Credevi che questo fosse il prototipo.</h2>
+                    <p class="null-copy">Hai ripristinato soltanto il livello di accesso. Il contenuto dell’archivio è ancora frammentato e il prossimo nodo non risponde alla dimensione corrente.</p>
+                    <div class="null-actions">
+                        <button class="null-button" type="button" data-archive-continue>Continua nel nodo 05</button>
+                        <a class="null-button secondary" href="../index.html">Salva ed esci</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../assets/js/null-stage-runtime.js"></script>
+    <script src="../assets/js/archive-auth.js"></script>
+</body>
+</html>

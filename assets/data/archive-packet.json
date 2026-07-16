@@ -1,0 +1,7 @@
+{
+  "requestId": "NULL-NODE-05-7G",
+  "status": "recovered",
+  "encoding": "base64",
+  "payload": "UEFDS0VULTdH",
+  "note": "The interface masks payloads. Inspect the response, then decode the transport encoding."
+}

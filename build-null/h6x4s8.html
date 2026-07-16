@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>BUILD//NULL — Parallax Archive</title>
+    <link rel="stylesheet" href="../assets/css/build-null.css">
+</head>
+<body class="null-page" data-null-stage="stereo" data-progress="8" data-progress-total="12">
+    <main class="null-shell">
+        <div class="null-topbar">
+            <a href="index.html">← Sospendi recupero</a>
+            <div class="null-progress" aria-label="Progresso: nodo 7 di 10">
+                <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span><span></span>
+            </div>
+        </div>
+        <section class="null-terminal">
+            <div class="null-windowbar"><i></i><i></i><i></i><span class="null-window-title">archive://node-07/optical-parallax</span></div>
+            <div class="null-content">
+                <p class="null-kicker">Frammento 07 — Separazione ottica</p>
+                <h1 class="null-title small">Two eyes required</h1>
+                <p class="null-copy">Il nodo ha distribuito la chiave su due canali cromatici. Gli occhiali rosso/ciano sono la via originale; le lenti digitali sono il protocollo di accessibilità.</p>
+                <div class="null-memory">NivaZGameS e UglyGames osservano lo stesso lavoro da due prospettive: una cerca solidità e costruzione, l’altra caos, ironia e libertà. La profondità appare soltanto quando le due immagini convivono.</div>
+
+                <svg class="null-filter-defs" width="0" height="0" aria-hidden="true" focusable="false">
+                    <filter id="null-red-channel" color-interpolation-filters="sRGB">
+                        <feColorMatrix type="matrix" values="1 0 0 0 0  1 0 0 0 0  1 0 0 0 0  0 0 0 1 0"></feColorMatrix>
+                        <feComponentTransfer>
+                            <feFuncR type="gamma" amplitude="1.35" exponent="0.72"></feFuncR>
+                            <feFuncG type="gamma" amplitude="1.35" exponent="0.72"></feFuncG>
+                            <feFuncB type="gamma" amplitude="1.35" exponent="0.72"></feFuncB>
+                        </feComponentTransfer>
+                    </filter>
+                    <filter id="null-cyan-channel" color-interpolation-filters="sRGB">
+                        <feColorMatrix type="matrix" values="0 .5 .5 0 0  0 .5 .5 0 0  0 .5 .5 0 0  0 0 0 1 0"></feColorMatrix>
+                        <feComponentTransfer>
+                            <feFuncR type="gamma" amplitude="1.35" exponent="0.72"></feFuncR>
+                            <feFuncG type="gamma" amplitude="1.35" exponent="0.72"></feFuncG>
+                            <feFuncB type="gamma" amplitude="1.35" exponent="0.72"></feFuncB>
+                        </feComponentTransfer>
+                    </filter>
+                    <filter id="null-channel-interference" color-interpolation-filters="sRGB">
+                        <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  1 0 0 0 0  1 0 0 0 0  0 0 0 1 0" result="red-map"></feColorMatrix>
+                        <feColorMatrix in="SourceGraphic" type="matrix" values="0 .5 .5 0 0  0 .5 .5 0 0  0 .5 .5 0 0  0 0 0 1 0" result="cyan-map"></feColorMatrix>
+                        <feBlend in="red-map" in2="cyan-map" mode="difference" result="delta-map"></feBlend>
+                        <feGaussianBlur in="delta-map" stdDeviation="2.8" result="density-map"></feGaussianBlur>
+                        <feComponentTransfer in="density-map">
+                            <feFuncR data-phase-level type="linear" slope="14" intercept="-2.66"></feFuncR>
+                            <feFuncG data-phase-level type="linear" slope="14" intercept="-2.66"></feFuncG>
+                            <feFuncB data-phase-level type="linear" slope="14" intercept="-2.66"></feFuncB>
+                        </feComponentTransfer>
+                    </filter>
+                </svg>
+                <div class="null-stereo-stage" data-stereo-stage>
+                    <!-- Asset stereoscopico sostituibile: la validazione è mantenuta nello script dedicato al nodo. -->
+                    <img src="../assets/images/build-null/ste.png" alt="Immagine stereoscopica rosso e ciano">
+                </div>
+                <div class="null-tool-row">
+                    <button class="null-button secondary" type="button" data-channel="red">Lente R</button>
+                    <button class="null-button secondary" type="button" data-channel="cyan">Lente C</button>
+                    <button class="null-button secondary" type="button" data-channel="interference" data-interference disabled>Sovrapponi R/C</button>
+                    <button class="null-button secondary" type="button" data-channel="original">Originale</button>
+                </div>
+                <div class="null-control null-phase-control" data-phase-control hidden>
+                    <label for="phaseFocus">Fuoco di fase</label>
+                    <input class="null-range-wide" id="phaseFocus" type="range" min="0" max="100" value="50" step="1" data-phase-focus>
+                    <div class="null-balance-labels"><span>DIFFUSO</span><strong data-phase-value>50%</strong><span>SELETTIVO</span></div>
+                </div>
+
+                <form class="null-form" data-stereo-form autocomplete="off">
+                    <div class="null-field"><label for="stereoCode">Parola ricostruita</label><input id="stereoCode" name="stereoCode" spellcheck="false"></div>
+                    <button class="null-button" type="submit">Allinea canali</button>
+                    <p class="null-status" data-status aria-live="polite"></p>
+                </form>
+                <div class="null-hints"><button class="null-button secondary" type="button" data-hint-button>Richiedi suggerimento</button><div class="null-hint-output" data-hint-output aria-live="polite"></div></div>
+            </div>
+        </section>
+    </main>
+    <script src="../assets/js/null-stage-runtime.js"></script>
+    <script src="../assets/js/null-stereo.js"></script>
+</body>
+</html>

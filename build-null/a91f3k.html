@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>BUILD//NULL — Legacy Login</title>
+    <link rel="stylesheet" href="../assets/css/build-null.css">
+</head>
+<body class="null-page" data-null-stage="login" data-progress="3" data-progress-total="12">
+    <!--
+        LEGACY MAINTENANCE NOTE
+        Operatore temporaneo: auditor
+        Password temporanea: oltrelapagina
+        TODO: rimuovere le credenziali dal sorgente prima della release.
+    -->
+    <main class="null-shell">
+        <div class="null-topbar">
+            <a href="index.html">← Torna al briefing</a>
+            <div class="null-progress" aria-label="Progresso: nodo 2 di 10">
+                <span class="active"></span><span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <section class="null-terminal">
+            <div class="null-windowbar">
+                <i></i><i></i><i></i>
+                <span class="null-window-title">archive://node-02/legacy-login</span>
+            </div>
+            <div class="null-content">
+                <p class="null-kicker">Frammento 02 — Controllo accessi</p>
+                <h1 class="null-title small">Legacy login</h1>
+                <p class="null-copy">Il vecchio manutentore aveva una pessima abitudine: lasciava annotazioni direttamente nei documenti. Il nome operatore è <strong>auditor</strong>. La password non appare nella pagina.</p>
+                <div class="null-memory">Più di quindici anni fa un piccolo hacking game iniziava proprio così: una schermata di login e una password lasciata, ingenuamente, dentro un commento HTML.</div>
+
+                <form class="null-form" data-login-form autocomplete="off">
+                    <div class="null-field">
+                        <label for="username">Operatore</label>
+                        <input id="username" name="username" value="auditor" spellcheck="false">
+                    </div>
+                    <div class="null-field">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" autofocus>
+                    </div>
+                    <button class="null-button" type="submit">Autentica</button>
+                    <p class="null-status" data-status aria-live="polite"></p>
+                </form>
+
+                <div class="null-hints">
+                    <button class="null-button secondary" type="button" data-hint-button>Richiedi suggerimento</button>
+                    <div class="null-hint-output" data-hint-output aria-live="polite"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../assets/js/null-stage-runtime.js"></script>
+    <script src="../assets/js/null-login.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>BUILD//NULL — Dual Memory Prototype</title>
+    <link rel="stylesheet" href="../assets/css/build-null.css">
+    <link rel="stylesheet" href="../assets/css/build-null-dual-prototype.css">
+</head>
+<body class="null-page dual-prototype" data-dual-mode="launcher">
+    <main class="null-shell dual-launcher" data-launcher>
+        <div class="null-topbar">
+            <a href="index.html">← Torna all'archivio</a>
+            <span>PROTOTIPO ISOLATO // NON COLLEGATO AL FLUSSO</span>
+        </div>
+        <section class="null-terminal">
+            <div class="null-windowbar"><i></i><i></i><i></i><span class="null-window-title">archive://prototype/divided-identity</span></div>
+            <div class="null-content">
+                <p class="null-kicker">Esperimento — Memoria biforcata</p>
+                <h1 class="null-title small">No single window survived</h1>
+                <p class="null-copy">Il frammento è stato registrato da due processi incompatibili. Nessuno dei due conserva abbastanza informazione per essere letto da solo.</p>
+                <div class="null-memory">Una parte ha imparato a costruire. L'altra ha continuato a giocare con ciò che non avrebbe dovuto funzionare. Per molto tempo hanno occupato spazi separati.</div>
+
+                <div class="dual-launch-grid">
+                    <button class="null-button" type="button" data-open-role="nivaz">
+                        <span>PROCESSO A</span>
+                        <strong>NivaZGameS</strong>
+                    </button>
+                    <button class="null-button" type="button" data-open-role="ugly">
+                        <span>PROCESSO B</span>
+                        <strong>UglyGames</strong>
+                    </button>
+                </div>
+
+                <div class="dual-launch-status" data-launch-status aria-live="polite">
+                    Apri entrambi i processi. Il resto non appartiene più a questa finestra.
+                </div>
+                <p class="dual-launch-note">Se il browser blocca una finestra, usa i due pulsanti separatamente. I processi devono restare in finestre autonome, non in schede affiancate.</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="dual-fragment" data-fragment hidden>
+        <header class="dual-fragment-header">
+            <span data-role-code>PROCESSO --</span>
+            <strong data-role-name>UNKNOWN</strong>
+        </header>
+        <section class="dual-fragment-memory">
+            <p data-role-memory></p>
+        </section>
+        <div class="dual-seam-guide" aria-hidden="true"></div>
+        <div class="dual-seam-word" data-seam-word aria-label="Frammento ricomposto"></div>
+        <footer class="dual-fragment-footer">
+            <div class="dual-sync-meter"><i data-sync-fill></i></div>
+            <span data-sync-label>RICERCA PROCESSO GEMELLO...</span>
+        </footer>
+    </main>
+
+    <script src="../assets/js/null-dual-window-prototype.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Frame corrotto dell'archivio</title>
+  <desc id="desc">Un'immagine molto scura e disturbata che richiede una regolazione del segnale.</desc>
+  <defs>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" seed="19" result="static"/>
+      <feColorMatrix in="static" type="saturate" values="0" result="grayStatic"/>
+      <feBlend in="SourceGraphic" in2="grayStatic" mode="soft-light"/>
+    </filter>
+    <pattern id="scan" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="4" fill="#777e80"/>
+      <rect y="4" width="8" height="4" fill="#707779"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="600" fill="#737a7c"/>
+  <rect width="1200" height="600" fill="url(#scan)" opacity=".3"/>
+  <g filter="url(#noise)">
+    <rect x="80" y="70" width="1040" height="460" rx="8" fill="#707779" stroke="#858d8f" stroke-width="3"/>
+    <path d="M120 160H1080M120 440H1080" stroke="#666d6f" stroke-width="2"/>
+    <text x="600" y="245" text-anchor="middle" fill="#858d8f" font-family="monospace" font-size="34" letter-spacing="10">RECOVERED SIGNAL</text>
+    <text x="600" y="355" text-anchor="middle" fill="#929b9d" font-family="monospace" font-weight="700" font-size="76" letter-spacing="18">SIGNAL91</text>
+    <text x="600" y="405" text-anchor="middle" fill="#858d8f" font-family="monospace" font-size="20" letter-spacing="4">FRAME 02 / CONTRAST REQUIRED</text>
+  </g>
+</svg>

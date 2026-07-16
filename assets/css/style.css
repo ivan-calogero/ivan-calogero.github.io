@@ -586,6 +586,48 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
     border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+.project-card-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.null-project-card {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    border-color: rgba(117, 255, 155, 0.25);
+    background:
+        linear-gradient(90deg, rgba(5, 22, 12, 0.98), rgba(7, 8, 15, 0.96)),
+        repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(117, 255, 155, 0.04) 4px);
+}
+
+.null-project-card .project-tag {
+    color: #75ff9b;
+}
+
+.null-project-card:hover {
+    border-color: rgba(117, 255, 155, 0.65);
+    background: radial-gradient(circle at top left, rgba(117, 255, 155, 0.13), rgba(7, 8, 15, 0.98));
+}
+
+.null-project-card.null-ending-release {
+    border-color: rgba(117, 255, 155, 0.7);
+    box-shadow: 0 0 28px rgba(117, 255, 155, 0.12);
+}
+
+.null-project-card.null-ending-delete {
+    border-style: dashed;
+}
+
+.null-footer-signal {
+    color: #75ff9b;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+}
+
 /* SKILLS */
 
 .skills-grid {
@@ -783,6 +825,11 @@ body.nav-open .menu-toggle .menu-line:nth-child(3) {
     .projects-grid,
     .skills-grid {
         grid-template-columns: minmax(0, 1fr);
+    }
+
+    .null-project-card {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .hero {

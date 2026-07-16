@@ -28,6 +28,33 @@ document.addEventListener("DOMContentLoaded", () => {
         yearSpan.textContent = new Date().getFullYear();
     }
 
+    // BUILD//NULL lascia una conseguenza locale nel portfolio dopo il finale.
+    const nullCard = document.getElementById("build-null-project-card");
+    const nullStatus = document.getElementById("build-null-project-status");
+    if (nullCard && nullStatus) {
+        try {
+            const ending = localStorage.getItem("buildNullEnding");
+            if (ending === "release") {
+                nullStatus.textContent = "Interactive Web Experience · BUILD RELEASED";
+                nullCard.classList.add("null-ending-release");
+            } else if (ending === "quarantine") {
+                nullStatus.textContent = "Interactive Web Experience · [QUARANTINED]";
+                const footer = document.querySelector(".site-footer");
+                if (footer) {
+                    const signal = document.createElement("span");
+                    signal.className = "null-footer-signal";
+                    signal.textContent = "NODE 03: SIGNAL CONTAINED";
+                    footer.appendChild(signal);
+                }
+            } else if (ending === "delete") {
+                nullStatus.textContent = "Interactive Web Experience · [DELETION FAILED]";
+                nullCard.classList.add("null-ending-delete");
+            }
+        } catch {
+            // Il portfolio resta pienamente utilizzabile se lo storage è disabilitato.
+        }
+    }
+
     // Animazione reveal on scroll per elementi con class .reveal
     const revealElements = document.querySelectorAll(".reveal");
 
