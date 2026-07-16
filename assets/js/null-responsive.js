@@ -4,10 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const slots = [...document.querySelectorAll("[data-fragment-slot]")];
     const lab = document.querySelector(".null-lab");
     const resizeHandle = document.querySelector("[data-mobile-resize-handle]");
-    const mobileQuery = window.matchMedia("(pointer: coarse) and (max-width: 800px)");
+    const mobileQuery = window.matchMedia("(max-width: 800px)");
+    const touchDevice = navigator.maxTouchPoints > 0
+        || "ontouchstart" in window
+        || Boolean(navigator.userAgentData && navigator.userAgentData.mobile)
+        || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
     const fragments = ["NODE", "RESIZE", "42"];
     const found = new Set();
-    let mobileMode = mobileQuery.matches;
+    let mobileMode = mobileQuery.matches && touchDevice;
     let dragStartX = 0;
     let dragStartWidth = 0;
 
@@ -44,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const configureMode = () => {
-        mobileMode = mobileQuery.matches;
+        mobileMode = mobileQuery.matches && touchDevice;
         lab.classList.toggle("touch-resizable", mobileMode);
         resizeHandle.hidden = !mobileMode;
         if (!mobileMode) {

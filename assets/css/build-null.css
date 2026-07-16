@@ -395,6 +395,7 @@ body.null-page::before {
 .null-lab.touch-resizable {
     min-width: 46%;
     max-width: 100%;
+    padding-right: 48px;
     margin-right: auto;
     container-type: inline-size;
 }
@@ -402,14 +403,16 @@ body.null-page::before {
 .null-resize-grip {
     position: absolute;
     top: -1px;
-    right: -14px;
+    right: 0;
     bottom: -1px;
-    width: 28px;
+    width: 38px;
     padding: 0;
     border: 0;
+    border-left: 1px solid var(--null-green-dim);
     outline: none;
     color: var(--null-green);
-    background: transparent;
+    background: rgba(117, 255, 155, 0.09);
+    box-shadow: -8px 0 18px rgba(117, 255, 155, 0.08);
     cursor: ew-resize;
     touch-action: none;
 }
@@ -418,32 +421,46 @@ body.null-page::before {
     content: "";
     position: absolute;
     top: 0;
-    right: 13px;
+    right: 37px;
     bottom: 0;
     width: 1px;
     background: var(--null-green-dim);
     box-shadow: 0 0 12px rgba(117, 255, 155, 0.36);
 }
 
-.null-resize-grip i {
+.null-resize-grip::after {
+    content: "↔";
     position: absolute;
-    top: 50%;
-    width: 2px;
-    height: 28px;
-    background: var(--null-green);
-    transform: translateY(-50%);
+    top: 12px;
+    left: 50%;
+    color: var(--null-green);
+    font: 700 16px/1 Consolas, "Courier New", monospace;
+    transform: translateX(-50%);
 }
 
-.null-resize-grip i:first-child { left: 10px; }
-.null-resize-grip i:last-child { right: 10px; }
+.null-resize-grip span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: var(--null-green);
+    font: 700 8px/1 Consolas, "Courier New", monospace;
+    letter-spacing: 0.12em;
+    writing-mode: vertical-rl;
+    transform: translate(-50%, -50%);
+    text-orientation: mixed;
+}
+
+.null-resize-grip span {
+    pointer-events: none;
+}
 
 .null-resize-grip:focus-visible {
     background: rgba(117, 255, 155, 0.08);
 }
 
-@media (pointer: coarse) and (max-width: 800px) {
+@media (max-width: 800px) {
     .null-lab.touch-resizable {
-        padding: 12px;
+        padding: 12px 48px 12px 12px;
     }
 
     .null-lab.touch-resizable .null-lab-header {
