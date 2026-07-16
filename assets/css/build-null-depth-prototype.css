@@ -276,6 +276,27 @@ html {
     opacity: 0;
 }
 
+.depth-answer-panel {
+    position: absolute;
+    left: 50%;
+    bottom: 48px;
+    z-index: 40;
+    width: min(620px, calc(100vw - 88px));
+    padding: 14px 16px;
+    border: 1px solid var(--null-line);
+    background: rgba(1, 5, 3, 0.96);
+    box-shadow: 0 0 28px rgba(117, 255, 155, 0.08);
+    transform: translateX(-50%);
+}
+
+.depth-answer-panel .null-form {
+    margin: 0;
+}
+
+.depth-answer-panel .null-hints {
+    margin-top: 10px;
+}
+
 @media (max-width: 640px) {
     .depth-header > span,
     .depth-footer > span:last-child {
@@ -302,6 +323,11 @@ html {
 
     .depth-shard-e {
         left: 24%;
+    }
+
+    .depth-answer-panel {
+        width: calc(100vw - 46px);
+        padding: 12px;
     }
 }
 
