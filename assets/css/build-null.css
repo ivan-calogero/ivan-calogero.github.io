@@ -384,10 +384,87 @@ body.null-page::before {
 }
 
 .null-lab {
+    position: relative;
+    box-sizing: border-box;
     margin: 28px 0;
     padding: 20px;
     border: 1px solid var(--null-line);
     background: rgba(0, 0, 0, 0.36);
+}
+
+.null-lab.touch-resizable {
+    min-width: 46%;
+    max-width: 100%;
+    margin-right: auto;
+    container-type: inline-size;
+}
+
+.null-resize-grip {
+    position: absolute;
+    top: -1px;
+    right: -14px;
+    bottom: -1px;
+    width: 28px;
+    padding: 0;
+    border: 0;
+    outline: none;
+    color: var(--null-green);
+    background: transparent;
+    cursor: ew-resize;
+    touch-action: none;
+}
+
+.null-resize-grip::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 13px;
+    bottom: 0;
+    width: 1px;
+    background: var(--null-green-dim);
+    box-shadow: 0 0 12px rgba(117, 255, 155, 0.36);
+}
+
+.null-resize-grip i {
+    position: absolute;
+    top: 50%;
+    width: 2px;
+    height: 28px;
+    background: var(--null-green);
+    transform: translateY(-50%);
+}
+
+.null-resize-grip i:first-child { left: 10px; }
+.null-resize-grip i:last-child { right: 10px; }
+
+.null-resize-grip:focus-visible {
+    background: rgba(117, 255, 155, 0.08);
+}
+
+@media (pointer: coarse) and (max-width: 800px) {
+    .null-lab.touch-resizable {
+        padding: 12px;
+    }
+
+    .null-lab.touch-resizable .null-lab-header {
+        gap: 6px;
+        font-size: clamp(8px, 3cqw, 11px);
+    }
+
+    .null-lab.touch-resizable .null-fragment-display {
+        min-height: 100px;
+        font-size: clamp(18px, 14cqw, 48px);
+    }
+
+    .null-lab.touch-resizable .null-fragment-slots {
+        gap: 3px;
+    }
+
+    .null-lab.touch-resizable .null-fragment-slots span {
+        min-width: 0;
+        font-size: clamp(7px, 3cqw, 10px);
+        overflow: hidden;
+    }
 }
 
 .null-lab-header {
