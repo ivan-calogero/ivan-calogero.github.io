@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const status = document.querySelector("[data-depth-status]");
     const coherenceLabel = document.querySelector("[data-depth-coherence]");
     const wordContainer = document.querySelector("[data-depth-word]");
-    const answerPanel = document.querySelector("[data-depth-answer]");
     const farGrid = document.querySelector('[data-depth-layer="far"]');
     const nearGrid = document.querySelector('[data-depth-layer="near"]');
     const shards = [...document.querySelectorAll("[data-shard]")];
@@ -28,24 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
         { at: 0.65, index: "STRATO 04", title: "BIFORCAZIONE", copy: "NivaZGameS costruiva. UglyGames disturbava. Sembravano direzioni opposte soltanto perché vivevano a profondità diverse." },
         { at: 0.82, index: "STRATO 05", title: "OLTRE", copy: "La ricostruzione si è dispersa. La profondità corretta esiste ancora, da qualche parte sopra di te." }
     ];
-
-    let answerUnlocked = false;
-    try {
-        answerUnlocked = sessionStorage.getItem("buildNullDepthReady") === "1";
-    } catch { /* La persistenza può non essere disponibile in modalità locale restrittiva. */ }
-
-    const unlockAnswer = () => {
-        if (!answerPanel || answerUnlocked) return;
-        answerUnlocked = true;
-        answerPanel.hidden = false;
-        document.body.classList.add("answer-ready");
-        try { sessionStorage.setItem("buildNullDepthReady", "1"); } catch { /* Il pannello resta comunque disponibile. */ }
-    };
-
-    if (answerPanel && answerUnlocked) {
-        answerPanel.hidden = false;
-        document.body.classList.add("answer-ready");
-    }
 
     for (let stripIndex = 0; stripIndex < stripCount; stripIndex += 1) {
         const strip = document.createElement("span");
@@ -93,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
         coherenceLabel.textContent = `COERENZA ${Math.round(coherence * 100).toString().padStart(2, "0")}%`;
         intro.classList.toggle("dismissed", progress > 0.025);
         stage.classList.toggle("coherent", coherence > 0.91);
-        if (coherence > 0.91) unlockAnswer();
         status.textContent = coherence > 0.91
             ? "STRATI COINCIDENTI // MANTENERE LA QUOTA"
             : progress < targetDepth

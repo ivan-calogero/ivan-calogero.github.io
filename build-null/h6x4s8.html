@@ -51,16 +51,17 @@
             <span>SCORRI PER INIZIARE ↓</span>
         </div>
 
-        <section class="depth-answer-panel" data-depth-answer hidden>
+        <section class="depth-answer-panel" data-depth-answer>
             <form class="null-form" data-depth-form autocomplete="off">
                 <div class="null-field">
                     <label for="depthCode">Frammento ricostruito</label>
                     <input id="depthCode" name="depthCode" spellcheck="false">
                 </div>
-                <button class="null-button" type="submit">Consolida memoria</button>
+                <button class="null-button" type="submit">Consolida</button>
+                <button class="null-button secondary depth-hint-button" type="button" data-hint-button title="Richiedi suggerimento" aria-label="Richiedi suggerimento">?</button>
                 <p class="null-status" data-status aria-live="polite"></p>
+                <div class="null-hint-output" data-hint-output aria-live="polite"></div>
             </form>
-            <div class="null-hints"><button class="null-button secondary" type="button" data-hint-button>Richiedi suggerimento</button><div class="null-hint-output" data-hint-output aria-live="polite"></div></div>
         </section>
 
         <footer class="depth-footer">

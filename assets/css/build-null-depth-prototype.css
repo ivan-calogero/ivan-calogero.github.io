@@ -243,7 +243,7 @@ html {
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index: 18;
+    z-index: 50;
     width: min(620px, calc(100vw - 48px));
     padding: clamp(20px, 5vw, 42px);
     border: 1px solid var(--null-line);
@@ -281,8 +281,8 @@ html {
     left: 50%;
     bottom: 48px;
     z-index: 40;
-    width: min(620px, calc(100vw - 88px));
-    padding: 14px 16px;
+    width: min(760px, calc(100vw - 88px));
+    padding: 8px 10px;
     border: 1px solid var(--null-line);
     background: rgba(1, 5, 3, 0.96);
     box-shadow: 0 0 28px rgba(117, 255, 155, 0.08);
@@ -290,11 +290,42 @@ html {
 }
 
 .depth-answer-panel .null-form {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: end;
+    max-width: none;
+    gap: 8px;
     margin: 0;
 }
 
-.depth-answer-panel .null-hints {
-    margin-top: 10px;
+.depth-answer-panel .null-field {
+    gap: 4px;
+}
+
+.depth-answer-panel .null-field input {
+    padding: 8px 10px;
+    font-size: 14px;
+}
+
+.depth-answer-panel .null-button {
+    min-height: 37px;
+    padding: 8px 12px;
+}
+
+.depth-answer-panel .depth-hint-button {
+    width: 38px;
+    padding: 8px;
+}
+
+.depth-answer-panel .null-status,
+.depth-answer-panel .null-hint-output {
+    grid-column: 1 / -1;
+    min-height: 0;
+    margin: 0;
+}
+
+.depth-answer-panel .null-status:empty,
+.depth-answer-panel .null-hint-output:empty {
+    display: none;
 }
 
 @media (max-width: 640px) {
@@ -326,8 +357,17 @@ html {
     }
 
     .depth-answer-panel {
-        width: calc(100vw - 46px);
-        padding: 12px;
+        width: calc(100vw - 22px);
+        padding: 7px;
+    }
+
+    .depth-answer-panel .null-form {
+        gap: 6px;
+    }
+
+    .depth-answer-panel .null-button {
+        padding-inline: 9px;
+        font-size: 11px;
     }
 }
 
