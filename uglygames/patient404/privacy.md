@@ -131,6 +131,9 @@ A seconda del Paese di residenza, l’utente può avere il diritto di:
 
 Per richieste riguardanti UglyGames è possibile scrivere a **i.calogero.dev@gmail.com**.
 
+Le istruzioni per richiedere la cancellazione dei dati sono disponibili alla pagina:
+**https://ivan-calogero.github.io/uglygames/patient404/data-deletion.html**
+
 Per i dati gestiti direttamente da Unity, l’utente può utilizzare gli strumenti mostrati tramite l’icona privacy degli annunci oppure contattare Unity all’indirizzo **DPO@unity3d.com**.
 
 Potremmo richiedere informazioni ragionevoli per verificare l’identità dell’utente e individuare correttamente i dati interessati.
@@ -285,6 +288,9 @@ Depending on their place of residence, users may have the right to:
 - lodge a complaint with the competent supervisory authority.
 
 Requests concerning UglyGames may be sent to **i.calogero.dev@gmail.com**.
+
+Instructions for requesting data deletion are available at:
+**https://ivan-calogero.github.io/uglygames/patient404/data-deletion.html**
 
 For information handled directly by Unity, users may use the tools available through the privacy icon displayed within advertisements or contact Unity at **DPO@unity3d.com**.
 

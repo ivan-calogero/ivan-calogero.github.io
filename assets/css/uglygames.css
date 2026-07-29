@@ -466,7 +466,8 @@
     overflow-wrap: anywhere;
 }
 
-.privacy-document ul {
+.privacy-document ul,
+.privacy-document ol {
     margin: 0 0 20px;
     padding-left: 22px;
     color: var(--text-muted);
