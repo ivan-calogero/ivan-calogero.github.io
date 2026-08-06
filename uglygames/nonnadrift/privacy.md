@@ -1,6 +1,6 @@
 # Privacy Policy — Nonna Drift
 
-**Ultimo aggiornamento:** 05/06/2026
+**Ultimo aggiornamento:** 06/08/2026
 
 La presente informativa descrive come vengono trattati i dati degli utenti che utilizzano il gioco **Nonna Drift**, pubblicato da **UglyGames**.
 
@@ -14,23 +14,36 @@ Il gioco **Nonna Drift** è sviluppato e pubblicato da **UglyGames**.
 
 ## 2. Dati raccolti direttamente dal gioco
 
-Nella versione attuale, **Nonna Drift non richiede la creazione di un account** e non raccoglie direttamente dati personali come nome, cognome, indirizzo email, numero di telefono o indirizzo fisico.
+Nella versione attuale, **Nonna Drift non richiede la creazione di un account tradizionale con email e password** e non richiede dati identificativi obbligatori come nome, cognome, indirizzo email, numero di telefono o indirizzo fisico.
 
 Il gioco può salvare localmente sul dispositivo alcune informazioni necessarie al funzionamento dell’esperienza di gioco, ad esempio:
 
 * progressi di gioco;
 * preferenze;
 * impostazioni;
+* preferenza pubblicitaria e fascia d'età selezionata;
 * punteggi locali;
-* dati tecnici necessari al corretto funzionamento dell’app.
+* dati tecnici necessari al corretto funzionamento dell'app.
 
-Questi dati sono utilizzati per permettere all’utente di proseguire il gioco e migliorare l’esperienza d’uso.
+Questi dati sono utilizzati per permettere all'utente di proseguire il gioco e migliorare l'esperienza d'uso.
+
+Per fornire le funzionalità online, il gioco utilizza **l'autenticazione anonima di Unity Services**. Questa autenticazione non richiede email o password e associa al giocatore un **Player ID** generato da Unity, utilizzato per collegare nickname, punteggi, classifiche ed eventi al profilo anonimo.
 
 ## 3. Pubblicità e servizi di terze parti
 
-Nonna Drift può mostrare annunci pubblicitari tramite servizi di terze parti, tra cui **Unity LevelPlay / Unity Ads**.
+Al primo avvio, Nonna Drift chiede all'utente di scegliere la fascia d'età e il tipo di pubblicità. **Unity LevelPlay viene avviato soltanto dopo questa scelta**.
 
-Questi servizi possono raccogliere e trattare dati tecnici e dati relativi al dispositivo o all’utilizzo dell’app, ad esempio:
+Le opzioni disponibili sono:
+
+* **13–15 anni:** soltanto pubblicità contestuale, con trattamento age-restricted;
+* **16+ anni:** pubblicità contestuale;
+* **16+ anni:** pubblicità personalizzata.
+
+La scelta viene salvata localmente sul dispositivo e può essere modificata in qualsiasi momento dalla sezione **“Privacy e pubblicità”** nelle impostazioni del gioco.
+
+Il gioco può mostrare annunci **rewarded**, visualizzati su scelta dell'utente in cambio della ricompensa indicata nel gioco, e annunci **interstitial** in determinati momenti dell'esperienza. La rete pubblicitaria attualmente integrata tramite Unity LevelPlay è **Unity Ads**.
+
+Questi servizi possono raccogliere e trattare dati tecnici e dati relativi al dispositivo o all'utilizzo dell'app, ad esempio:
 
 * identificativi del dispositivo o identificativi pubblicitari;
 * informazioni tecniche sul dispositivo;
@@ -53,28 +66,19 @@ Informativa privacy Unity:
 
 https://unity.com/legal/game-player-and-app-user-privacy-policy
 
-## 4. Classifiche, eventi e funzionalità online future
+## 4. Classifiche, eventi e funzionalità online
 
-In versioni future, Nonna Drift potrebbe introdurre funzionalità online facoltative, come:
+Nonna Drift utilizza funzionalità online basate su Unity Services, tra cui:
 
+* autenticazione anonima e Player ID;
+* nickname del giocatore;
 * classifiche settimanali, mensili o totali;
 * eventi giornalieri o settimanali;
-* nickname del giocatore;
-* salvataggi cloud;
-* recupero dei progressi su un nuovo dispositivo.
+* punteggi e dati relativi alla partecipazione agli eventi.
 
-Se tali funzionalità verranno introdotte, potranno essere raccolti dati aggiuntivi, ad esempio:
+Questi dati sono utilizzati per fornire il profilo anonimo e gestire classifiche, eventi e punteggi. Il nickname scelto dall'utente può essere mostrato nelle classifiche.
 
-* nickname;
-* indirizzo email o identificativo account;
-* punteggi;
-* progressi di gioco;
-* dati relativi alla partecipazione a eventi;
-* eventuali dati tecnici necessari alla sincronizzazione dei salvataggi.
-
-Questi dati saranno utilizzati esclusivamente per fornire le funzionalità online richieste, gestire classifiche, eventi, salvataggi e recupero dei progressi.
-
-La presente informativa verrà aggiornata prima o contestualmente all’attivazione di tali funzionalità.
+**Cloud Save e recupero dei progressi su un nuovo dispositivo non sono attualmente disponibili** e restano funzionalità future. Nella versione attuale non sono inoltre presenti **acquisti in-app (IAP)** né una funzione **“Rimuovi pubblicità”**.
 
 ## 5. Base e finalità del trattamento
 
@@ -85,7 +89,9 @@ I dati possono essere trattati per le seguenti finalità:
 * visualizzazione di annunci pubblicitari;
 * analisi tecnica e diagnostica;
 * prevenzione di frodi, abusi o comportamenti non autorizzati;
-* eventuale gestione futura di classifiche, eventi e salvataggi cloud.
+* gestione del profilo anonimo, del Player ID e del nickname;
+* gestione di classifiche, eventi e punteggi;
+* eventuale gestione futura di Cloud Save e recupero dei progressi.
 
 ## 6. Condivisione dei dati
 
@@ -99,7 +105,9 @@ I dati salvati localmente sul dispositivo restano sul dispositivo dell’utente 
 
 Per i dati trattati da servizi terzi, come Unity LevelPlay / Unity Ads, si applicano anche le rispettive policy di conservazione dei dati.
 
-Nel caso in cui vengano introdotte funzionalità online con account, classifiche o salvataggi cloud, i dati saranno conservati per il tempo necessario a fornire tali funzionalità, salvo richiesta di cancellazione da parte dell’utente o obblighi di legge applicabili.
+Il Player ID, il nickname, i punteggi e i dati delle classifiche possono essere conservati tramite Unity Services per il tempo necessario a fornire le funzionalità online, salvo richiesta di cancellazione da parte dell'utente o obblighi di legge applicabili.
+
+Se in futuro verranno introdotti Cloud Save e recupero dei progressi, la presente informativa verrà aggiornata per descriverne anche le modalità di conservazione.
 
 ## 8. Sicurezza
 
@@ -113,18 +121,20 @@ L’utente può richiedere informazioni sul trattamento dei propri dati o chiede
 
 **i.calogero.dev@gmail.com**
 
-Per dati trattati da fornitori terzi, l’utente può fare riferimento anche alle rispettive informative privacy e agli strumenti messi a disposizione da tali fornitori.
+Per dati trattati da fornitori terzi, l'utente può fare riferimento anche alle rispettive informative privacy e agli strumenti messi a disposizione da tali fornitori.
+
+La preferenza pubblicitaria può essere modificata direttamente dalla sezione **“Privacy e pubblicità”** nelle impostazioni del gioco.
 
 ## 10. Minori
 
-Nonna Drift non è progettato specificamente per bambini di età inferiore a 13 anni.
+**Nonna Drift non è destinato a utenti di età inferiore a 13 anni.**
 
-Se in futuro il gioco dovesse essere destinato anche a un pubblico di minori o famiglie, saranno adottate le misure richieste dalle normative e dalle policy applicabili, incluse eventuali limitazioni relative a pubblicità, raccolta dati e consenso.
+Gli utenti che indicano una fascia d'età compresa tra 13 e 15 anni ricevono soltanto pubblicità contestuale. Per questa fascia Unity LevelPlay e Unity Ads vengono configurati con trattamento **age-restricted**, limitando la personalizzazione pubblicitaria in base alla scelta effettuata.
 
 ## 11. Modifiche alla presente informativa
 
-La presente informativa può essere aggiornata nel tempo, ad esempio in caso di introduzione di nuove funzionalità, servizi online, classifiche, eventi, salvataggi cloud o modifiche ai servizi pubblicitari utilizzati.
+La presente informativa può essere aggiornata nel tempo, ad esempio in caso di modifiche alle funzionalità online, alle classifiche o agli eventi, di introduzione di Cloud Save o acquisti in-app, oppure di modifiche ai servizi pubblicitari utilizzati.
 
 La versione aggiornata sarà pubblicata a questo indirizzo:
 
-**[URL SITO / GITHUB PAGES]**
+https://ivan-calogero.github.io/uglygames/nonnadrift/privacy.html
